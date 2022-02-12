@@ -36,7 +36,7 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" name="contract_date" placeholder="Дата договора"
+                        <input type="date" class="form-control" name="contract_date" placeholder="Дата договора"
                                value="{{ $client->contract_date }}">
                     </div>
                     <div class="form-group">

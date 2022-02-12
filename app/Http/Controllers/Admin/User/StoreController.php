@@ -26,7 +26,6 @@ class StoreController extends Controller
             'email.unique' => 'Пользователь с таким email уже существует',
             'password.required' => 'Это поле необходимо для заполнения',
             'password.string' => 'Пароль должен быть строкой',
-
         ];
     }
 
