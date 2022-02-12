@@ -7,7 +7,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Добавление клиента</h1>
+                        <h1 class="m-0">Добавление пользователя</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -23,31 +23,31 @@
         <!-- Main content -->
         <section class="content">
             <div class="row ml-3">
-                <form action="{{ route('admin.client.store') }}" method="POST" class="w-25">
+                <form action="{{ route('admin.user.store') }}" method="POST" class="w-25">
                     @csrf
                     <div class="form-group">
-                        <input type="text" class="form-control" name="name" placeholder="Наименование">
+                        <input type="text" class="form-control" name="name" placeholder="Учётная запись">
                         @error('name')
                         <div class="text-danger">
-                            Это поле необходимо для заполнения
+                            {{ $message }}
                         </div>
                         @enderror
                     </div>
-                    <input type="text" class="form-control" name="contract_date" placeholder="Дата договора">
-{{--                    <div class="form-group">--}}
-{{--                        <label>Дата договора:</label>--}}
-{{--                        <div class="input-group date" id="contract_date" data-target-input="nearest">--}}
-{{--                            <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate">--}}
-{{--                            <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">--}}
-{{--                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
                     <div class="form-group">
-                        <input type="text" class="form-control" name="delivery_cost" placeholder="Стоимость поставки">
+                        <input type="text" class="form-control" name="email" placeholder="E-mail">
+                        @error('email')
+                        <div class="text-danger">
+                            {{ $message }}
+                        </div>
+                        @enderror
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" name="region" placeholder="Регион">
+                        <input type="text" class="form-control" name="password" placeholder="Пароль">
+                        @error('password')
+                        <div class="text-danger">
+                            {{ $message }}
+                        </div>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <input type="submit" class="btn btn-primary" value="Добавить">
