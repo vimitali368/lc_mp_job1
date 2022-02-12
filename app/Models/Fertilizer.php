@@ -9,6 +9,6 @@ class Fertilizer extends Model
 {
     use HasFactory;
 
-    protected $table = 'fertilizer';
+    protected $table = 'fertilizers';
     protected $guarded = false;
 }

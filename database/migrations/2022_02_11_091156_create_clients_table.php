@@ -13,12 +13,12 @@ class CreateClientsTable extends Migration
      */
     public function up()
     {
-        Schema::create('clients', function (Blueprint $table) {
+        Schema::create('client', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->date('contract_date');
+            $table->date('contract_date')->nullable();
             $table->decimal('delivery_cost', 16, 2)->nullable();
-            $table->string('region');
+            $table->string('region')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreateClientsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('clients');
+        Schema::dropIfExists('client');
     }
 }

@@ -39,7 +39,6 @@
     <!-- /.navbar -->
 
     @include('admin.includes.sidebar')
-
     @yield('content')
     <footer class="main-footer">
         <strong>Сайт</strong>

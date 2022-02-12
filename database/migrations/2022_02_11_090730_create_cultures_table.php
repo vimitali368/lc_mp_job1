@@ -13,7 +13,7 @@ class CreateCulturesTable extends Migration
      */
     public function up()
     {
-        Schema::create('cultures', function (Blueprint $table) {
+        Schema::create('culture', function (Blueprint $table) {
             $table->id();
             $table->string('name');
 
@@ -28,6 +28,6 @@ class CreateCulturesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cultures');
+        Schema::dropIfExists('culture');
     }
 }
