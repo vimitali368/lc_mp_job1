@@ -32,19 +32,42 @@
                             Это поле необходимо для заполнения
                         </div>
                         @enderror
+                    </div>
+                    <div class="form-group">
                         <input type="text" class="form-control" name="norm_nitrogen" placeholder="Норма Азот">
+                    </div>
+                    <div class="form-group">
                         <input type="text" class="form-control" name="norm_phosphorus" placeholder="Норма Фосфор">
+                    </div>
+                    <div class="form-group">
                         <input type="text" class="form-control" name="norm_potassium" placeholder="Норма Калий">
-                        <input type="text" class="form-control" name="culture_id" placeholder="Группа культур">
+                    </div>
+                    <div class="form-group">
+                        <label>Выбирите группу культур</label>
+                        <select name="culture_id" class="form-control">
+                            @foreach($cultures as $culture)
+                                <option value="{{ $culture->id }}"
+                                    {{ $culture->id == old('culture_id') ? ' selected' : '' }}
+                                >{{ $culture->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <input type="text" class="form-control" name="district" placeholder="Район">
+                    </div>
+                    <div class="form-group">
                         <input type="text" class="form-control" name="cost" placeholder="Стоимость">
+                    </div>
+                    <div class="form-group">
                         <input type="text" class="form-control" name="description" placeholder="Описание">
+                    </div>
+                    <div class="form-group">
                         <input type="text" class="form-control" name="appointment" placeholder="Назначение">
                     </div>
-                    <input type="submit" class="btn btn-primary" value="Добавить">
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-primary" value="Добавить">
+                    </div>
                 </form>
-            </div>
-
         </section>
         <!-- /.content -->
     </div>

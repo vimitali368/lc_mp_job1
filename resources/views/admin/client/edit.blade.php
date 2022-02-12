@@ -27,20 +27,31 @@
                     @csrf
                     @method('PATCH')
                     <div class="form-group">
-                        <input type="text" class="form-control" name="name" placeholder="Наименование" value="{{ $client->name }}">
+                        <input type="text" class="form-control" name="name" placeholder="Наименование"
+                               value="{{ $client->name }}">
                         @error('name')
                         <div class="text-danger">
                             Это поле необходимо для заполнения
                         </div>
                         @enderror
-                        <input type="text" class="form-control" name="contract_date" placeholder="Дата договора" value="{{ $client->contract_date }}">
-                        <input type="text" class="form-control" name="delivery_cost" placeholder="Стоимость поставки" value="{{ $client->delivery_cost }}">
-                        <input type="text" class="form-control" name="region" placeholder="Регион" value="{{ $client->region }}">
                     </div>
-                    <input type="submit" class="btn btn-primary" value="Обновить">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="contract_date" placeholder="Дата договора"
+                               value="{{ $client->contract_date }}">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="delivery_cost" placeholder="Стоимость поставки"
+                               value="{{ $client->delivery_cost }}">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="region" placeholder="Регион"
+                               value="{{ $client->region }}">
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-primary" value="Обновить">
+                    </div>
                 </form>
             </div>
-
         </section>
         <!-- /.content -->
     </div>

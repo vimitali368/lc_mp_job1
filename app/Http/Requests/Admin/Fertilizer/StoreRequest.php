@@ -28,7 +28,7 @@ class StoreRequest extends FormRequest
             'norm_nitrogen' => 'numeric',
             'norm_phosphorus' => 'numeric',
             'norm_potassium' => 'numeric',
-            'culture_id' => 'numeric',
+            'culture_id' => 'numeric|exists:cultures,id',
             'district' => 'string',
             'cost' => 'numeric',
             'description' => 'string',

@@ -27,17 +27,19 @@
                     @csrf
                     @method('PATCH')
                     <div class="form-group">
-                        <input type="text" class="form-control" name="name" placeholder="Наименование" value="{{ $culture->name }}">
+                        <input type="text" class="form-control" name="name" placeholder="Наименование"
+                               value="{{ $culture->name }}">
                         @error('name')
                         <div class="text-danger">
                             Это поле необходимо для заполнения
                         </div>
                         @enderror
                     </div>
-                    <input type="submit" class="btn btn-primary" value="Обновить">
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-primary" value="Обновить">
+                    </div>
                 </form>
             </div>
-
         </section>
         <!-- /.content -->
     </div>
