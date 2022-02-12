@@ -46,7 +46,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function() {
         Route::get('/{fertilizer}', 'ShowController')->name('admin.fertilizer.show');
         Route::get('/{fertilizer}/edit', 'EditController')->name('admin.fertilizer.edit');
         Route::patch('/{fertilizer}', 'UpdateController')->name('admin.fertilizer.update');
-        Route::delete('/{fertilizer}', 'DeleteController')->name('admin.client.delete');
+        Route::delete('/{fertilizer}', 'DeleteController')->name('admin.fertilizer.delete');
     });
 });
 

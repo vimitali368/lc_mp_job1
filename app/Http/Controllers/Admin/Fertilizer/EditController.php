@@ -9,6 +9,6 @@ class EditController extends Controller
 {
     public function __invoke(Fertilizer $fertilizer)
     {
-        return view('admin.culture.edit', compact('fertilizer'));
+        return view('admin.fertilizer.edit', compact('fertilizer'));
     }
 }

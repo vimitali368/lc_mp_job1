@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin\Fertilizer;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Client\StoreRequest;
+use App\Http\Requests\Admin\Fertilizer\StoreRequest;
 use App\Models\Fertilizer;
 
 class StoreController extends Controller
@@ -12,6 +12,6 @@ class StoreController extends Controller
     {
         $data = $request->validated();
         Fertilizer::firstOrCreate($data);
-        return redirect()->route('admin.client.index');
+        return redirect()->route('admin.fertilizer.index');
     }
 }
