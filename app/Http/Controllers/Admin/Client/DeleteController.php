@@ -10,6 +10,6 @@ class DeleteController extends Controller
     public function __invoke(Client $client)
     {
         $client->delete();
-        return redirect()->route('admin.culture.index');
+        return redirect()->route('admin.client.index');
     }
 }

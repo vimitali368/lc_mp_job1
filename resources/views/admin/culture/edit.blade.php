@@ -22,7 +22,7 @@
 
         <!-- Main content -->
         <section class="content">
-            <div class="row">
+            <div class="row ml-3">
                 <form action="{{ route('admin.culture.update', $culture->id ) }}" method="POST" class="w-25">
                     @csrf
                     @method('PATCH')

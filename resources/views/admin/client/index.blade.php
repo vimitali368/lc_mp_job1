@@ -28,7 +28,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-6">
+                <div class="col-12">
                     <div class="card">
                         <!-- /.card-header -->
                         <div class="card-body table-responsive p-0">
@@ -37,6 +37,9 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Наименование</th>
+                                    <th>Дата договора</th>
+                                    <th>Стоимость поставки</th>
+                                    <th>Регион</th>
                                     <th colspan="3" class="text-center">Действия</th>
                                 </tr>
                                 </thead>
@@ -45,6 +48,9 @@
                                     <tr>
                                         <td>{{ $client->id }}</td>
                                         <td>{{ $client->name }}</td>
+                                        <td>{{ $client->contract_date }}</td>
+                                        <td>{{ $client->delivery_cost }}</td>
+                                        <td>{{ $client->region }}</td>
                                         <td class="text-center">
                                             <a href="{{ route('admin.client.show', $client->id) }}"><i
                                                     class="far fa-eye"></i></a></td>

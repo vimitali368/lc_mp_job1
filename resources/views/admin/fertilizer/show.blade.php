@@ -45,9 +45,42 @@
                                     <td>{{ $fertilizer->id }}</td>
                                 </tr>
                                 <tr>
-                                    <td>{{ $fertilizer->name }}</td>
                                     <td>Наименование</td>
+                                    <td>{{ $fertilizer->name }}</td>
                                 </tr>
+                                <tr>
+                                    <td>Норма Азот</td>
+                                    <td>{{ $fertilizer->norm_nitrogen }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Норма Фосфор</td>
+                                    <td>{{ $fertilizer->norm_phosphorus }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Норма Калий</td>
+                                    <td>{{ $fertilizer->norm_potassium }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Группа культур</td>
+                                    <td>{{ $fertilizer->culture_id }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Район</td>
+                                    <td>{{ $fertilizer->district }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Стоимость</td>
+                                    <td>{{ $fertilizer->cost }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Описание</td>
+                                    <td>{{ $fertilizer->description }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Назначение</td>
+                                    <td>{{ $fertilizer->appointment }}</td>
+                                </tr>
+
                                 </tbody>
                             </table>
                         </div>

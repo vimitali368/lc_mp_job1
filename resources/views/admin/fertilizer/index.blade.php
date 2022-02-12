@@ -28,7 +28,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-6">
+                <div class="col-12">
                     <div class="card">
                         <!-- /.card-header -->
                         <div class="card-body table-responsive p-0">
@@ -37,6 +37,14 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Наименование</th>
+                                    <th>Норма Азот</th>
+                                    <th>Норма Фосфор</th>
+                                    <th>Норма Калий</th>
+                                    <th>Группа культур</th>
+                                    <th>Район</th>
+                                    <th>Стоимость</th>
+                                    <th>Описание</th>
+                                    <th>Назначение</th>
                                     <th colspan="3" class="text-center">Действия</th>
                                 </tr>
                                 </thead>
@@ -45,6 +53,14 @@
                                     <tr>
                                         <td>{{ $fertilizer->id }}</td>
                                         <td>{{ $fertilizer->name }}</td>
+                                        <td>{{ $fertilizer->norm_nitrogen }}</td>
+                                        <td>{{ $fertilizer->norm_phosphorus }}</td>
+                                        <td>{{ $fertilizer->norm_potassium }}</td>
+                                        <td>{{ $fertilizer->culture_id }}</td>
+                                        <td>{{ $fertilizer->district }}</td>
+                                        <td>{{ $fertilizer->cost }}</td>
+                                        <td>{{ $fertilizer->description }}</td>
+                                        <td>{{ $fertilizer->appointment }}</td>
                                         <td class="text-center">
                                             <a href="{{ route('admin.fertilizer.show', $fertilizer->id) }}">
                                                 <i class="far fa-eye"></i>

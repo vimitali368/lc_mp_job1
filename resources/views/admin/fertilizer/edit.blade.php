@@ -22,7 +22,7 @@
 
         <!-- Main content -->
         <section class="content">
-            <div class="row">
+            <div class="row ml-3">
                 <form action="{{ route('admin.fertilizer.update', $fertilizer->id ) }}" method="POST" class="w-25">
                     @csrf
                     @method('PATCH')
@@ -33,6 +33,14 @@
                             Это поле необходимо для заполнения
                         </div>
                         @enderror
+                        <input type="text" class="form-control" name="norm_nitrogen" placeholder="Норма Азот" value="{{ $fertilizer->norm_nitrogen }}">
+                        <input type="text" class="form-control" name="norm_phosphorus" placeholder="Норма Фосфор" value="{{ $fertilizer->norm_phosphorus }}">
+                        <input type="text" class="form-control" name="norm_potassium" placeholder="Норма Калий" value="{{ $fertilizer->norm_potassium }}">
+                        <input type="text" class="form-control" name="culture_id" placeholder="Группа культур" value="{{ $fertilizer->culture_id }}">
+                        <input type="text" class="form-control" name="district" placeholder="Район" value="{{ $fertilizer->district }}">
+                        <input type="text" class="form-control" name="cost" placeholder="Стоимость" value="{{ $fertilizer->cost }}">
+                        <input type="text" class="form-control" name="description" placeholder="Описание" value="{{ $fertilizer->description }}">
+                        <input type="text" class="form-control" name="appointment" placeholder="Назначение" value="{{ $fertilizer->appointment }}">
                     </div>
                     <input type="submit" class="btn btn-primary" value="Обновить">
                 </form>

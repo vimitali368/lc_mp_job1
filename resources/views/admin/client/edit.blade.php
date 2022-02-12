@@ -22,7 +22,7 @@
 
         <!-- Main content -->
         <section class="content">
-            <div class="row">
+            <div class="row ml-3">
                 <form action="{{ route('admin.client.update', $client->id ) }}" method="POST" class="w-25">
                     @csrf
                     @method('PATCH')
@@ -33,6 +33,9 @@
                             Это поле необходимо для заполнения
                         </div>
                         @enderror
+                        <input type="text" class="form-control" name="contract_date" placeholder="Дата договора" value="{{ $client->contract_date }}">
+                        <input type="text" class="form-control" name="delivery_cost" placeholder="Стоимость поставки" value="{{ $client->delivery_cost }}">
+                        <input type="text" class="form-control" name="region" placeholder="Регион" value="{{ $client->region }}">
                     </div>
                     <input type="submit" class="btn btn-primary" value="Обновить">
                 </form>

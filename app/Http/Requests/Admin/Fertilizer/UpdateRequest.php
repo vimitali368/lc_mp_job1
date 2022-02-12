@@ -24,7 +24,15 @@ class UpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string'
+            'name' => 'required|string',
+            'norm_nitrogen' => 'numeric',
+            'norm_phosphorus' => 'numeric',
+            'norm_potassium' => 'numeric',
+            'culture_id' => 'numeric',
+            'district' => 'string',
+            'cost' => 'numeric',
+            'description' => 'string',
+            'appointment' => 'string'
         ];
     }
 }

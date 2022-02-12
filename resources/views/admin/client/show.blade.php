@@ -45,8 +45,20 @@
                                     <td>{{ $client->id }}</td>
                                 </tr>
                                 <tr>
-                                    <td>{{ $client->name }}</td>
                                     <td>Наименование</td>
+                                    <td>{{ $client->name }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Дата договора</td>
+                                    <td>{{ $client->contract_date }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Стоимость поставки</td>
+                                    <td>{{ $client->delivery_cost }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Регион</td>
+                                    <td>{{ $client->region }}</td>
                                 </tr>
                                 </tbody>
                             </table>

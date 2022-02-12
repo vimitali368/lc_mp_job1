@@ -45,8 +45,8 @@
                                     <td>{{ $culture->id }}</td>
                                 </tr>
                                 <tr>
-                                    <td>{{ $culture->name }}</td>
                                     <td>Наименование</td>
+                                    <td>{{ $culture->name }}</td>
                                 </tr>
                                 </tbody>
                             </table>

@@ -22,7 +22,7 @@
 
         <!-- Main content -->
         <section class="content">
-            <div class="row">
+            <div class="row ml-3">
                 <form action="{{ route('admin.client.store') }}" method="POST" class="w-25">
                     @csrf
                     <div class="form-group">
@@ -32,6 +32,9 @@
                             Это поле необходимо для заполнения
                         </div>
                         @enderror
+                        <input type="text" class="form-control" name="contract_date" placeholder="Дата договора">
+                        <input type="text" class="form-control" name="delivery_cost" placeholder="Стоимость поставки">
+                        <input type="text" class="form-control" name="region" placeholder="Регион">
                     </div>
                     <input type="submit" class="btn btn-primary" value="Добавить">
                 </form>
