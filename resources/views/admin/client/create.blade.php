@@ -33,16 +33,9 @@
                         </div>
                         @enderror
                     </div>
-                    <input type="text" class="form-control" name="contract_date" placeholder="Дата договора">
-{{--                    <div class="form-group">--}}
-{{--                        <label>Дата договора:</label>--}}
-{{--                        <div class="input-group date" id="contract_date" data-target-input="nearest">--}}
-{{--                            <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate">--}}
-{{--                            <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">--}}
-{{--                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
+                    <div class="form-group">
+                        <input type="date" class="form-control" name="contract_date" placeholder="Дата договора">
+                    </div>
                     <div class="form-group">
                         <input type="text" class="form-control" name="delivery_cost" placeholder="Стоимость поставки">
                     </div>
