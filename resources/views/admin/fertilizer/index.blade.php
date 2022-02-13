@@ -32,20 +32,20 @@
                     <div class="card">
                         <!-- /.card-header -->
                         <div class="card-body table-responsive p-0">
-                            <table class="table table-hover text-nowrap">
+                            <table class="table table-hover text-nowrap table-sm">
                                 <thead>
                                 <tr>
-                                    <th>ID</th>
-                                    <th>Наименование</th>
-                                    <th>Норма Азот</th>
-                                    <th>Норма Фосфор</th>
-                                    <th>Норма Калий</th>
-                                    <th>Группа культур</th>
-                                    <th>Район</th>
-                                    <th>Стоимость</th>
-                                    <th>Описание</th>
-                                    <th>Назначение</th>
-                                    <th colspan="3" class="text-center">Действия</th>
+                                    <th class="align-middle">ID</th>
+                                    <th class="align-middle">Наименование</th>
+                                    <th class="text-wrap">Норма Азот</th>
+                                    <th class="text-wrap">Норма Фосфор</th>
+                                    <th class="text-wrap">Норма Калий</th>
+                                    <th class="text-wrap">Группа культур</th>
+                                    <th class="align-middle">Район</th>
+                                    <th class="align-middle">Стоимость</th>
+                                    <th class="align-middle">Описание</th>
+                                    <th class="align-middle">Назначение</th>
+                                    <th class="align-middle text-center" colspan="3">Действия</th>
                                 </tr>
                                 </thead>
                                 <tbody>
