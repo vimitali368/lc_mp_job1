@@ -25,9 +25,9 @@ class UpdateRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
-            'contract_date' => 'date',
-            'delivery_cost' => 'numeric',
-            'region' => 'string'
+            'contract_date' => 'nullable|date',
+            'delivery_cost' => 'nullable|numeric',
+            'region' => 'nullable|string'
         ];
     }
 }

@@ -25,14 +25,14 @@ class UpdateRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
-            'norm_nitrogen' => 'numeric',
-            'norm_phosphorus' => 'numeric',
-            'norm_potassium' => 'numeric',
-            'culture_id' => 'numeric',
-            'district' => 'string',
-            'cost' => 'numeric',
-            'description' => 'string',
-            'appointment' => 'string'
+            'norm_nitrogen' => 'nullable|numeric',
+            'norm_phosphorus' => 'nullable|numeric',
+            'norm_potassium' => 'nullable|numeric',
+            'culture_id' => 'nullable|numeric',
+            'district' => 'nullable|string',
+            'cost' => 'nullable|numeric',
+            'description' => 'nullable|string',
+            'appointment' => 'nullable|string'
         ];
     }
 }
