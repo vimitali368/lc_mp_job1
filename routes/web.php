@@ -19,7 +19,7 @@ Route::get('/', function () {
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     Route::group(['namespace' => 'Main'], function () {
-        Route::get('/', 'IndexController');
+        Route::get('/', 'IndexController')->name('admin');
     });
     Route::group(['namespace' => 'Culture', 'prefix' => 'cultures'], function () {
         Route::get('/', 'IndexController')->name('admin.culture.index');
