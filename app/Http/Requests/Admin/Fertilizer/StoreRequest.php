@@ -1,0 +1,38 @@
+<?php
+
+namespace App\Http\Requests\Admin\Fertilizer;
+
+use Illuminate\Foundation\Http\FormRequest;
+
+class StoreRequest extends FormRequest
+{
+    /**
+     * Determine if the user is authorized to make this request.
+     *
+     * @return bool
+     */
+    public function authorize()
+    {
+        return true;
+    }
+
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array
+     */
+    public function rules()
+    {
+        return [
+            'name' => 'required|string',
+            'norm_nitrogen' => 'nullable|numeric',
+            'norm_phosphorus' => 'nullable|numeric',
+            'norm_potassium' => 'nullable|numeric',
+            'culture_id' => 'nullable|numeric|exists:cultures,id',
+            'district' => 'nullable|string',
+            'cost' => 'nullable|numeric',
+            'description' => 'nullable|string',
+            'appointment' => 'nullable|string'
+        ];
+    }
+}
