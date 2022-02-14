@@ -27,7 +27,7 @@ class CreateFertilizersTable extends Migration
             $table->timestamps();
 
             $table->index('culture_id', 'fertilizer_culture_idx');
-            $table->foreign('culture_id', 'fertilizer_culture_fk')->on('culture')->references('id');
+            $table->foreign('culture_id', 'fertilizer_culture_fk')->on('cultures')->references('id');
         });
     }
 
