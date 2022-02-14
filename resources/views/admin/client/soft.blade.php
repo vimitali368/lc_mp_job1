@@ -12,7 +12,8 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('admin') }}">Админка</a></li>
-                            <li class="breadcrumb-item active">Клиенты / Список</li>
+                            <li class="breadcrumb-item"><a href="{{ route('admin.client.index') }}">Клиенты</a></li>
+                            <li class="breadcrumb-item active">Список удалённых</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -22,14 +23,6 @@
 
         <!-- Main content -->
         <section class="content">
-            <div class="row">
-                <div class="col-2 mb-3">
-                    <a href="{{ route('admin.client.create') }}" type="button" class="btn btn-block btn-primary">Добавить</a>
-                </div>
-                <div class="col-2 mb-3">
-                    <a href="{{ route('admin.client.soft') }}" type="button" class="btn btn-block btn-info">Удалённые</a>
-                </div>
-            </div>
             <div class="row">
                 <div class="col-12">
                     <div class="card">
@@ -43,7 +36,6 @@
                                     <th>Дата договора</th>
                                     <th>Стоимость поставки</th>
                                     <th>Регион</th>
-                                    <th colspan="3" class="text-center">Действия</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -54,22 +46,6 @@
                                         <td>{{ $client->contract_date }}</td>
                                         <td>{{ $client->delivery_cost }}</td>
                                         <td>{{ $client->region }}</td>
-                                        <td class="text-center">
-                                            <a href="{{ route('admin.client.show', $client->id) }}"><i
-                                                    class="far fa-eye"></i></a></td>
-                                        <td class="text-center">
-                                            <a href="{{ route('admin.client.edit', $client->id) }}"
-                                               class="text-success"><i class="fas fa-pencil-alt"></i></a></td>
-                                        <td>
-                                            <form action="{{ route('admin.client.delete', $client->id) }}"
-                                                  method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="border-0 bg-transparent">
-                                                    <i class="fas fa-trash text-danger" role="button"></i>
-                                                </button>
-                                            </form>
-                                        </td>
                                     </tr>
                                 @endforeach
                                 </tbody>

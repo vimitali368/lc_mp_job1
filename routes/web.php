@@ -23,6 +23,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     });
     Route::group(['namespace' => 'Culture', 'prefix' => 'cultures'], function () {
         Route::get('/', 'IndexController')->name('admin.culture.index');
+        Route::get('/soft', 'SoftController')->name('admin.culture.soft');
         Route::get('/create', 'CreateController')->name('admin.culture.create');
         Route::post('/store', 'StoreController')->name('admin.culture.store');
         Route::get('/{culture}', 'ShowController')->name('admin.culture.show');
@@ -32,6 +33,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     });
     Route::group(['namespace' => 'Client', 'prefix' => 'clients'], function () {
         Route::get('/', 'IndexController')->name('admin.client.index');
+        Route::get('/soft', 'SoftController')->name('admin.client.soft');
         Route::get('/create', 'CreateController')->name('admin.client.create');
         Route::post('/store', 'StoreController')->name('admin.client.store');
         Route::get('/{client}', 'ShowController')->name('admin.client.show');
@@ -41,6 +43,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     });
     Route::group(['namespace' => 'Fertilizer', 'prefix' => 'fertilizers'], function () {
         Route::get('/', 'IndexController')->name('admin.fertilizer.index');
+        Route::get('/soft', 'SoftController')->name('admin.fertilizer.soft');
         Route::get('/create', 'CreateController')->name('admin.fertilizer.create');
         Route::post('/store', 'StoreController')->name('admin.fertilizer.store');
         Route::get('/{fertilizer}', 'ShowController')->name('admin.fertilizer.show');
@@ -50,6 +53,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     });
     Route::group(['namespace' => 'User', 'prefix' => 'users'], function () {
         Route::get('/', 'IndexController')->name('admin.user.index');
+        Route::get('/soft', 'SoftController')->name('admin.user.soft');
         Route::get('/create', 'CreateController')->name('admin.user.create');
         Route::post('/store', 'StoreController')->name('admin.user.store');
         Route::get('/{user}', 'ShowController')->name('admin.user.show');
