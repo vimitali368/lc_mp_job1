@@ -12,7 +12,10 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('admin') }}">Админка</a></li>
-                            <li class="breadcrumb-item active">Удобрения / Список</li>
+                            <li class="breadcrumb-item">
+                                <a href="{{ route('admin.fertilizer.index') }}">Удобрения</a>
+                            </li>
+                            <li class="breadcrumb-item active">Список удалённых</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -22,15 +25,6 @@
 
         <!-- Main content -->
         <section class="content">
-            <div class="row">
-                <div class="col-2 mb-3">
-                    <a href="{{ route('admin.fertilizer.create') }}" type="button" class="btn btn-block btn-primary">Добавить</a>
-                </div>
-                <div class="col-2 mb-3">
-                    <a href="{{ route('admin.fertilizer.soft') }}" type="button"
-                       class="btn btn-block btn-info">Удалённые</a>
-                </div>
-            </div>
             <div class="row">
                 <div class="col-12">
                     <div class="card">
@@ -49,7 +43,6 @@
                                     <th class="align-middle">Стоимость</th>
                                     <th class="align-middle">Описание</th>
                                     <th class="align-middle">Назначение</th>
-                                    <th class="align-middle text-center" colspan="3">Действия</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -65,27 +58,6 @@
                                         <td>{{ $fertilizer->cost }}</td>
                                         <td>{{ $fertilizer->description }}</td>
                                         <td>{{ $fertilizer->appointment }}</td>
-                                        <td class="text-center">
-                                            <a href="{{ route('admin.fertilizer.show', $fertilizer->id) }}">
-                                                <i class="far fa-eye"></i>
-                                            </a>
-                                        </td>
-                                        <td class="text-center">
-                                            <a href="{{ route('admin.fertilizer.edit', $fertilizer->id) }}"
-                                               class="text-success">
-                                                <i class="fas fa-pencil-alt"></i>
-                                            </a>
-                                        </td>
-                                        <td>
-                                            <form action="{{ route('admin.fertilizer.delete', $fertilizer->id) }}"
-                                                  method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="border-0 bg-transparent">
-                                                    <i class="fas fa-trash text-danger" role="button"></i>
-                                                </button>
-                                            </form>
-                                        </td>
                                     </tr>
                                 @endforeach
                                 </tbody>
