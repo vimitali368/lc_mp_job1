@@ -14,17 +14,21 @@ class SearchController extends Controller
     {
         $data = $request->validated();
 //        dd($data);
+        if (isset($data['delivery_cost_from'])) {
+            $data = [
+                'delivery_cost' => [
+                    $data['delivery_cost_from'],
+                    $data['delivery_cost_to']
+                ]
+            ];
+        }
+//        dd($data);
         $filter = app()->make(ClientFilter::class, [
             'queryParams' => array_filter($data)
         ]);
 //        dd($filter);
         $clients = Client::filter($filter)->get();
 //        dd($clients);
-        //        if ($data) {
-//            dd($data);
-//            dd($data['name']);
-//        }
-
 //        $clients = Client::where('name', 'like', "%{$data['name']}%")->get();
         return view('admin.client.search', compact('clients'));
     }

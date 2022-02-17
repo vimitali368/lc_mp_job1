@@ -13,27 +13,32 @@ class ClientFilter extends AbstractFilter
 
     protected function getCallbacks(): array
     {
+//        dd($this);
         return [
             self::NAME => [$this, 'name'],
-            self::CONTRACT_DATE => [$this, 'contractDate'],
-            self::DELIVERY_COST => [$this, 'deliveryCost'],
+            self::CONTRACT_DATE => [$this, 'contractDateFrom', 'contractDateTo'],
+            self::DELIVERY_COST => [$this, 'deliveryСost'],
             self::REGION => [$this, 'region'],
         ];
     }
 
     public function name(Builder $builder, $value)
     {
+//        dd($builder);
         $builder->where('name', 'like', "%{$value}%");
     }
 
     public function contractDate(Builder $builder, $contractDateFrom, $contractDateTo)
     {
+//        dd($builder);
         $builder->whereBetween('contract_date', [$contractDateFrom, $contractDateTo]);
     }
 
-    public function deliveryCost(Builder $builder, $deliveryCostFrom, $deliveryCostTo)
+    public function deliveryСost(Builder $builder, $value)
     {
-        $builder->whereBetween('delivery_cost', [$deliveryCostFrom, $deliveryCostTo]);
+//        dd($value);
+
+        $builder->whereBetween('delivery_cost', $value);
     }
 
     public function region(Builder $builder, $arrayOfIds)

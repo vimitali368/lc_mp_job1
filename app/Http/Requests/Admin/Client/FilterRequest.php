@@ -27,8 +27,8 @@ class FilterRequest extends FormRequest
             'name' => 'string',
             'contract_date_from' => 'date',
             'contract_date_to' => 'date',
-            'delivery_cost_from' => 'numeric',
-            'delivery_cost_to' => 'numeric',
+            'delivery_cost_from' => 'string',
+            'delivery_cost_to' => 'string',
             'region' => 'string'
         ];
     }
