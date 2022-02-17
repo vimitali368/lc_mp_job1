@@ -76,11 +76,28 @@
                                     <label>Регион:</label>
                                     <select multiple="" class="form-control">
                                         @foreach($regions as $region)
-                                            <option>option 1</option>
-                                            <option value="{{ $region->id }}"
-                                                {{ $culture->id == old('culture_id') ? ' selected' : '' }}
-                                            >{{ $culture->name }}</option>
+                                            <option value="{{ $region->region }}"
+                                                {{ $region->region == old('region') ? ' selected' : '' }}
+                                            >{{ $region->region }}</option>
                                         @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Сортировать по:</label>
+                                    <select class="form-control">
+                                        <option>Наименование</option>
+                                        <option>Стоимость поставки</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Порядок сортировки:</label>
+                                    <select class="form-control">
+                                        <option>option 1</option>
+                                        <option>option 1</option>
                                     </select>
                                 </div>
                             </div>

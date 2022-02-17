@@ -37,7 +37,6 @@ class ClientFilter extends AbstractFilter
     public function deliveryСost(Builder $builder, $value)
     {
 //        dd($value);
-
         $builder->whereBetween('delivery_cost', $value);
     }
 
