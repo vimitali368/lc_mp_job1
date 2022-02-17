@@ -26,14 +26,14 @@ class ClientFilter extends AbstractFilter
         $builder->where('name', 'like', "%{$value}%");
     }
 
-    public function contractDate(Builder $builder, $valueFrom, $valueTo)
+    public function contractDate(Builder $builder, $contractDateFrom, $contractDateTo)
     {
-        $builder->whereBetween('contract_date', [$valueFrom, $valueTo]);
+        $builder->whereBetween('contract_date', [$contractDateFrom, $contractDateTo]);
     }
 
-    public function deliveryCost(Builder $builder, $valueFrom, $valueTo)
+    public function deliveryCost(Builder $builder, $deliveryCostFrom, $deliveryCostTo)
     {
-        $builder->whereBetween('delivery_cost', [$valueFrom, $valueTo]);
+        $builder->whereBetween('delivery_cost', [$deliveryCostFrom, $deliveryCostTo]);
     }
 
     public function region(Builder $builder, $arrayOfIds)

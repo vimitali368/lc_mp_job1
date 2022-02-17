@@ -13,12 +13,13 @@ class SearchController extends Controller
     public function __invoke(FilterRequest $request)
     {
         $data = $request->validated();
+//        dd($data);
         $filter = app()->make(ClientFilter::class, [
             'queryParams' => array_filter($data)
         ]);
 //        dd($filter);
         $clients = Client::filter($filter)->get();
-        dd($clients);
+//        dd($clients);
         //        if ($data) {
 //            dd($data);
 //            dd($data['name']);
