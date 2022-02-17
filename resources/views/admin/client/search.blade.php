@@ -71,7 +71,7 @@
                                            @if(isset($_GET['delivery_cost_to'])) value="{{$_GET['delivery_cost_to']}}" @endif >
                                 </div>
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-3">
                                 <div class="form-group">
                                     <label>Регион:</label>
                                     <select multiple="" class="form-control">
@@ -83,21 +83,21 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-3">
                                 <div class="form-group">
                                     <label>Сортировать по:</label>
-                                    <select class="form-control">
-                                        <option>Наименование</option>
-                                        <option>Стоимость поставки</option>
+                                    <select class="form-control" name="sort">
+                                        <option value="name">Наименование</option>
+                                        <option value="delivery_cost">Стоимость поставки</option>
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-3">
                                 <div class="form-group">
                                     <label>Порядок сортировки:</label>
-                                    <select class="form-control">
-                                        <option>option 1</option>
-                                        <option>option 1</option>
+                                    <select class="form-control" name="order">
+                                        <option value="asc">По возрастанию</option>
+                                        <option value="desc">По убыванию</option>
                                     </select>
                                 </div>
                             </div>

@@ -10,15 +10,17 @@ class ClientFilter extends AbstractFilter
     public const CONTRACT_DATE = 'contract_date';
     public const DELIVERY_COST = 'delivery_cost';
     public const REGION = 'region';
+    public const SORT = 'sort';
 
     protected function getCallbacks(): array
     {
 //        dd($this);
         return [
             self::NAME => [$this, 'name'],
-            self::CONTRACT_DATE => [$this, 'contractDateFrom', 'contractDateTo'],
+            self::CONTRACT_DATE => [$this, 'contractDate'],
             self::DELIVERY_COST => [$this, 'deliveryСost'],
             self::REGION => [$this, 'region'],
+            self::SORT => [$this, 'sort'],
         ];
     }
 
@@ -28,8 +30,10 @@ class ClientFilter extends AbstractFilter
         $builder->where('name', 'like', "%{$value}%");
     }
 
-    public function contractDate(Builder $builder, $contractDateFrom, $contractDateTo)
+    public function contractDate(Builder $builder, $array)
     {
+        $contractDateFrom = $array[0];
+        $contractDateTo = $array[1];
 //        dd($builder);
         $builder->whereBetween('contract_date', [$contractDateFrom, $contractDateTo]);
     }
@@ -43,5 +47,14 @@ class ClientFilter extends AbstractFilter
     public function region(Builder $builder, $arrayOfIds)
     {
         $builder->whereIn('region', $arrayOfIds);
+    }
+
+    public function sort(Builder $builder, $arrayOfSort)
+    {
+        $sort = $arrayOfSort[0];
+        $order = $arrayOfSort[1];
+//        dd($sort);
+//        dd($order);
+        $builder->orderBy($sort, $order);
     }
 }

@@ -15,6 +15,15 @@ class SearchController extends Controller
     {
         $data = $request->validated();
 //        dd($data);
+        if (isset($data['contract_date_from'])) {
+            $data = [
+                'contract_date' => [
+                    $data['contract_date_from'],
+                    $data['contract_date_to']
+                ]
+            ];
+        }
+//        dd($data);
         if (isset($data['delivery_cost_from'])) {
             $data = [
                 'delivery_cost' => [
@@ -28,6 +37,14 @@ class SearchController extends Controller
                 'region' => explode(",", $data['region'])
             ];
 
+        }
+        if (isset($data['sort'])) {
+            $data = [
+                'sort' => [
+                    $data['sort'],
+                    $data['order']
+                ]
+            ];
         }
 //        dd($data);
         $filter = app()->make(ClientFilter::class, [
