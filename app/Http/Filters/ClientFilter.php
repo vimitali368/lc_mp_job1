@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Builder;
 
 class ClientFilter extends AbstractFilter
 {
-    public const NAME = '';
+    public const NAME = 'name';
     public const CONTRACT_DATE = 'contract_date';
     public const DELIVERY_COST = 'delivery_cost';
     public const REGION = 'region';
