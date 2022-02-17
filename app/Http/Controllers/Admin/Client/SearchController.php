@@ -27,9 +27,12 @@ class SearchController extends Controller
             'queryParams' => array_filter($data)
         ]);
 //        dd($filter);
+        // Хардкор
+//        $regions = Client::all()->groupBy('region')->get();
+        dd($regions);
         $clients = Client::filter($filter)->get();
 //        dd($clients);
 //        $clients = Client::where('name', 'like', "%{$data['name']}%")->get();
-        return view('admin.client.search', compact('clients'));
+        return view('admin.client.search', compact('clients', 'regions'));
     }
 }

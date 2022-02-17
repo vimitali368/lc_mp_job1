@@ -51,10 +51,12 @@
                                 <label>Стоимость поставки:</label>
                                 <div class="input-group mb-3">
                                     <span class="input-group-text">0.00</span>
-                                    <input type="search" class="form-control" aria-label="Начальная стоимость поставки (с точкой и двумя знаками)">
+                                    <input type="search" class="form-control"
+                                           aria-label="Начальная стоимость поставки (с точкой и двумя знаками)">
                                 </div>
                                 <div class="input-group">
-                                    <input type="search" class="form-control" aria-label="Конечная стоимость поставки (с точкой и двумя знаками)">
+                                    <input type="search" class="form-control"
+                                           aria-label="Конечная стоимость поставки (с точкой и двумя знаками)">
                                     <span class="input-group-text">0.00</span>
                                 </div>
                             </div>
@@ -73,11 +75,12 @@
                                 <div class="form-group">
                                     <label>Регион:</label>
                                     <select multiple="" class="form-control">
-                                        <option>option 1</option>
-                                        <option>option 2</option>
-                                        <option>option 3</option>
-                                        <option>option 4</option>
-                                        <option>option 5</option>
+                                        @foreach($regions as $region)
+                                            <option>option 1</option>
+                                            <option value="{{ $region->id }}"
+                                                {{ $culture->id == old('culture_id') ? ' selected' : '' }}
+                                            >{{ $culture->name }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
