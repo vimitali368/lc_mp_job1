@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class SearchgetController extends Controller
 {
-    public function __invoke(Client $client)
+    public function __invoke()
     {
         $regions = DB::table('clients')
             ->select('region')

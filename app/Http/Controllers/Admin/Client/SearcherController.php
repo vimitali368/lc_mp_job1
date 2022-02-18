@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin\Client;
 
 use App\Http\Controllers\Controller;
-use App\Http\Filters\ClientFilter;
+use App\Http\Filters\FertilizerFilter;
 use App\Http\Requests\Admin\Client\FilterRequest;
 use App\Models\Client;
 use Illuminate\Support\Facades\DB;
@@ -49,7 +49,7 @@ class SearcherController extends Controller
             ];
         }
 //        dd($data);
-        $filter = app()->make(ClientFilter::class, [
+        $filter = app()->make(FertilizerFilter::class, [
             'queryParams' => array_filter($data)
         ]);
 //        dd($filter);
