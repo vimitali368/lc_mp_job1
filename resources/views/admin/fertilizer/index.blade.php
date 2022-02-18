@@ -30,6 +30,10 @@
                     <a href="{{ route('admin.fertilizer.soft') }}" type="button"
                        class="btn btn-block btn-info">Удалённые</a>
                 </div>
+                <div class="col-2 mb-3">
+                    <a href="{{ route('admin.fertilizer.searchget') }}" type="button"
+                       class="btn btn-block btn-secondary">Поиск</a>
+                </div>
             </div>
             <div class="row">
                 <div class="col-12">
