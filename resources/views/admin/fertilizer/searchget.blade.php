@@ -151,7 +151,7 @@
                                     <label for="sort">Сортировать по:</label>
                                     <select class="form-control form-control-sm" id="sort" name="sort">
                                         <option value="name">Наименование</option>
-                                        <option value="delivery_cost">Стоимость поставки</option>
+                                        <option value="cost">Стоимость</option>
                                     </select>
                                 </div>
                             </div>
@@ -164,9 +164,10 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-2 mb-3">
-                                <a href="{{ route('admin.fertilizer.searchget') }}" type="button"
-                                   class="btn btn-block btn-secondary">Поиск</a>
+                            <div class="input-group-append">
+                                <button type="submit" class="btn btn-sm btn-default">
+                                    <i class="fa fa-search"></i>
+                                </button>
                             </div>
                         </div>
                     </form>

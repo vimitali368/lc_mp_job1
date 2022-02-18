@@ -24,26 +24,26 @@ class SearchpostController extends Controller
         if (!isset($data['name'])) {
             unset($data['name']);
         }
-        if (isset($data['contract_date_from'])) {
+        if (isset($data['contract_date_from']) && isset($data['contract_date_to'])) {
             $data['contract_date'] = [
                 $data['contract_date_from'],
                 $data['contract_date_to']
             ];
-        } else {
-            unset($data['contract_date_from']);
-            unset($data['contract_date_to']);
         }
+        unset($data['contract_date_from']);
+        unset($data['contract_date_to']);
 //        dd($data);
-        if (!isset($data['delivery_cost_from']) || !isset($data['delivery_cost_to'])) {
-            unset($data['delivery_cost_from']);
-            unset($data['delivery_cost_to']);
-        } else {
+
+        if (isset($data['delivery_cost_from']) && isset($data['delivery_cost_to'])) {
             $data['delivery_cost'] = [
                 $data['delivery_cost_from'],
                 $data['delivery_cost_to']
             ];
         }
+        unset($data['delivery_cost_from']);
+        unset($data['delivery_cost_to']);
 //        dd($data);
+
         if (!isset($data['regions'])) {
             unset($data['regions']);
         }

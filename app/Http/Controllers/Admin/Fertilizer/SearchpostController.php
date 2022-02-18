@@ -14,50 +14,54 @@ class SearchpostController extends Controller
     public function __invoke(FilterRequest $request)
     {
 //        dd($request);
+
         $data = $request->validated();
 //        dd($data);
         if (!isset($data['name'])) {
             unset($data['name']);
         }
 //        dd($data);
-        if (!isset($data['norm_nitrogen_from']) || !isset($data['norm_nitrogen_to'])) {
-            unset($data['norm_nitrogen_from']);
-            unset($data['norm_nitrogen_to']);
-        } else {
+
+        if (isset($data['norm_nitrogen_from']) && isset($data['norm_nitrogen_to'])) {
             $data['norm_nitrogen'] = [
                 $data['norm_nitrogen_from'],
                 $data['norm_nitrogen_to']
             ];
         }
+        unset($data['norm_nitrogen_from']);
+        unset($data['norm_nitrogen_to']);
 //        dd($data);
-        if (!isset($data['norm_phosphorus_from']) || !isset($data['norm_phosphorus_to'])) {
-            unset($data['norm_phosphorus_from']);
-            unset($data['norm_phosphorus_to']);
-        } else {
+
+        if (isset($data['norm_phosphorus_from']) && isset($data['norm_phosphorus_to'])) {
             $data['norm_phosphorus'] = [
                 $data['norm_phosphorus_from'],
                 $data['norm_phosphorus_to']
             ];
         }
+        unset($data['norm_phosphorus_from']);
+        unset($data['norm_phosphorus_to']);
 //        dd($data);
-        if (!isset($data['norm_potassium_from']) || !isset($data['norm_potassium_to'])) {
-            unset($data['norm_potassium_from']);
-            unset($data['norm_potassium_to']);
-        } else {
+
+        if (isset($data['norm_potassium_from']) && isset($data['norm_potassium_to'])) {
             $data['norm_potassium'] = [
                 $data['norm_potassium_from'],
                 $data['norm_potassium_to']
             ];
         }
+        unset($data['norm_potassium_from']);
+        unset($data['norm_potassium_to']);
 //        dd($data);
+
         if (!isset($data['culture_ids'])) {
             unset($data['culture_ids']);
         }
 //        dd($data);
+
         if (!isset($data['districts'])) {
             unset($data['districts']);
         }
 //        dd($data);
+
         if (!isset($data['costs'])) {
             unset($data['costs']);
         }
@@ -78,10 +82,12 @@ class SearchpostController extends Controller
             unset($data['order']);
         }
 //        dd($data);
+
         $filter = app()->make(FertilizerFilter::class, [
             'queryParams' => array_filter($data)
         ]);
 //        dd($filter);
+
         $cultures = Culture::all();
 //        dd($cultures);
 // Хардкор
@@ -92,6 +98,7 @@ class SearchpostController extends Controller
             ->groupBy('district')
             ->get();
 //        dd($districts);
+
         $costs = DB::table('fertilizers')
             ->select('cost')
             ->whereNotNull('cost')
@@ -99,6 +106,7 @@ class SearchpostController extends Controller
             ->groupBy('cost')
             ->get();
 //        dd($costs);
+
         $fertilizers = Fertilizer::filter($filter)->get();
 //        dd($fertilizers);
         return view('admin.fertilizer.searchget',

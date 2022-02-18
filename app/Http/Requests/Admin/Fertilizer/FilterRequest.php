@@ -25,9 +25,12 @@ class FilterRequest extends FormRequest
     {
         return [
             'name' => 'nullable|string',
-            'norm_nitrogen' => 'nullable|numeric',
-            'norm_phosphorus' => 'nullable|numeric',
-            'norm_potassium' => 'nullable|numeric',
+            'norm_nitrogen_from' => 'nullable|numeric',
+            'norm_nitrogen_to' => 'nullable|numeric',
+            'norm_phosphorus_from' => 'nullable|numeric',
+            'norm_phosphorus_to' => 'nullable|numeric',
+            'norm_potassium_from' => 'nullable|numeric',
+            'norm_potassium_to' => 'nullable|numeric',
             'culture_ids' => 'nullable|array',
             'culture_ids.*' => 'nullable|numeric|exists:cultures,id',
             'districts' => 'nullable|array',
@@ -35,7 +38,9 @@ class FilterRequest extends FormRequest
             'costs' => 'nullable|array',
             'costs.*' => 'nullable|numeric',
             'description' => 'nullable|string',
-            'appointment' => 'nullable|string'
+            'appointment' => 'nullable|string',
+            'sort' => 'required|string',
+            'order' => 'required|string'
         ];
     }
 }
