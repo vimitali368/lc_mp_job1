@@ -32,7 +32,7 @@
                        class="btn btn-block btn-info">Удалённые</a>
                 </div>
                 <div class="col-2 mb-3">
-                    <a href="{{ route('admin.client.search') }}" type="button"
+                    <a href="{{ route('admin.client.searchget') }}" type="button"
                        class="btn btn-block btn-secondary">Поиск</a>
                 </div>
             </div>

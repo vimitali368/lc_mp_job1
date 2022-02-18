@@ -24,15 +24,15 @@ class FilterRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'string',
-            'contract_date_from' => 'date',
-            'contract_date_to' => 'date',
-            'delivery_cost_from' => 'string',
-            'delivery_cost_to' => 'string',
-            'regions' => 'array',
-            'regions.*' => 'string',
-            'sort' => 'string',
-            'order' => 'string',
+            'name' => 'nullable|string',
+            'contract_date_from' => 'nullable|date',
+            'contract_date_to' => 'nullable|date',
+            'delivery_cost_from' => 'nullable|string',
+            'delivery_cost_to' => 'nullable|string',
+            'regions' => 'nullable|array',
+            'regions.*' => 'nullable|string',
+            'sort' => 'required|string',
+            'order' => 'required|string',
         ];
     }
 }

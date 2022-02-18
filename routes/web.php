@@ -33,9 +33,9 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     });
     Route::group(['namespace' => 'Client', 'prefix' => 'clients'], function () {
         Route::get('/', 'IndexController')->name('admin.client.index');
-        Route::get('/search', 'SearchController')->name('admin.client.search');
-        Route::post('/searcher', 'SearcherController')->name('admin.client.searcher');
         Route::get('/soft', 'SoftController')->name('admin.client.soft');
+        Route::get('/searchget', 'SearchgetController')->name('admin.client.searchget');
+        Route::post('/searchpost', 'SearchpostController')->name('admin.client.searchpost');
         Route::get('/create', 'CreateController')->name('admin.client.create');
         Route::post('/store', 'StoreController')->name('admin.client.store');
         Route::get('/{client}', 'ShowController')->name('admin.client.show');

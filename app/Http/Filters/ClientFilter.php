@@ -9,7 +9,7 @@ class ClientFilter extends AbstractFilter
     public const NAME = 'name';
     public const CONTRACT_DATE = 'contract_date';
     public const DELIVERY_COST = 'delivery_cost';
-    public const REGION = 'region';
+    public const REGION = 'regions';
     public const SORT = 'sort';
 
     protected function getCallbacks(): array
@@ -19,7 +19,7 @@ class ClientFilter extends AbstractFilter
             self::NAME => [$this, 'name'],
             self::CONTRACT_DATE => [$this, 'contractDate'],
             self::DELIVERY_COST => [$this, 'deliveryСost'],
-            self::REGION => [$this, 'region'],
+            self::REGION => [$this, 'regions'],
             self::SORT => [$this, 'sort'],
         ];
     }
@@ -44,7 +44,7 @@ class ClientFilter extends AbstractFilter
         $builder->whereBetween('delivery_cost', $value);
     }
 
-    public function region(Builder $builder, $arrayOfIds)
+    public function regions(Builder $builder, $arrayOfIds)
     {
         $builder->whereIn('region', $arrayOfIds);
     }
