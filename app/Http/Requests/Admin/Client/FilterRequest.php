@@ -29,7 +29,8 @@ class FilterRequest extends FormRequest
             'contract_date_to' => 'date',
             'delivery_cost_from' => 'string',
             'delivery_cost_to' => 'string',
-            'region' => 'string',
+            'regions' => 'array',
+            'regions.*' => 'string',
             'sort' => 'string',
             'order' => 'string',
         ];
