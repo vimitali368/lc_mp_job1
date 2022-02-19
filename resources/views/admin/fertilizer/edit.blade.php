@@ -12,7 +12,8 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('admin') }}">Админка</a></li>
-                            <li class="breadcrumb-item"><a href="{{ route('admin.fertilizer.index') }}">Удобрения</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('admin.fertilizer.index') }}">Удобрения</a>
+                            </li>
                             <li class="breadcrumb-item active">Редактирование</li>
                         </ol>
                     </div><!-- /.col -->
@@ -49,8 +50,14 @@
                                value="{{ $fertilizer->norm_potassium }}">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" name="culture_id" placeholder="Группа культур"
-                               value="{{ $fertilizer->culture_id }}">
+                        <label>Выбирите группу культур</label>
+                        <select name="culture_id" class="form-control">
+                            @foreach($cultures as $culture)
+                                <option value="{{ $fertilizer->culture_id }}"
+                                    {{ $culture->id == old('culture_id') ? ' selected' : '' }}
+                                >{{ $culture->name }}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" name="district" placeholder="Район"
