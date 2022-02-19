@@ -51,9 +51,9 @@
                     </div>
                     <div class="form-group">
                         <label>Выбирите группу культур</label>
-                        <select name="culture_id" class="form-control">
+                        <select name="culture_id" class="form-control" value="{{ $fertilizer->culture_id }}">
                             @foreach($cultures as $culture)
-                                <option value="{{ $fertilizer->culture_id }}"
+                                <option value="{{ $culture->id }}"
                                     {{ $culture->id == old('culture_id') ? ' selected' : '' }}
                                 >{{ $culture->name }}</option>
                             @endforeach
