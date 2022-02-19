@@ -34,7 +34,9 @@
                                     <label for="name" class="text-center">Наименование:</label>
                                     <input type="search" class="form-control form-control-sm"
                                            placeholder="Наименование" id="name" name="name"
-                                        {{--                                           @if(isset($_GET['name'])) value="{{$_GET['name']}}" @endif --}}
+                                           {{--                                           value="{{ $fertilizer->norm_nitrogen }}">--}}
+                                           {{--                                           @dd($_POST)--}}
+                                           @if(isset($_GET['name'])) value="{{$_GET['name']}}" @endif
                                     >
                                 </div>
                             </div>
@@ -95,17 +97,18 @@
                                     <span class="input-group-text form-control-sm">0.00</span>
                                 </div>
                             </div>
+{{--                            @dd(old('culture_ids[]'))--}}
                             <div class="col-sm-2">
                                 <div class="form-group">
                                     <label for="cultures">Группа культур:</label>
                                     <select class="select2 form-control-sm" multiple="multiple"
                                             data-placeholder="Выбирите группу культур"
                                             style="width: 100%;"
-                                            id="cultures" name="culture_ids[]">>
+                                            id="cultures" name="culture_ids[]">
                                         @foreach($cultures as $culture)
-                                            <option value="{{ $culture->id }}">
-                                                {{ $culture->name }}
-                                            </option>
+                                            <option value="{{ $culture->id }}"
+                                                {{ $culture->id == old('cultures') ? ' selected' : '' }}
+                                            >{{ $culture->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -158,15 +161,15 @@
                             <div class="col-sm-2">
                                 <div class="form-group">
                                     <label for="order">Порядок сортировки:</label>
-                                    <select class="form-control  form-control-sm" id="order" name="order">
+                                    <select class="form-control form-control-sm" id="order" name="order">
                                         <option value="asc">По возрастанию</option>
                                         <option value="desc">По убыванию</option>
                                     </select>
                                 </div>
                             </div>
-                            <div class="input-group-append">
-                                <button type="submit" class="btn btn-sm btn-default">
-                                    <i class="fa fa-search"></i>
+                            <div class="input-group-append mt-3">
+                                <button type="submit" class="btn btn-block btn-secondary rounded">
+                                    <i class="">Поиск</i>
                                 </button>
                             </div>
                         </div>

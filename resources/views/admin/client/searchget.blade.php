@@ -33,7 +33,7 @@
                                     <label for="name" class="text-center">Наименование:</label>
                                     <input type="search" class="form-control form-control-sm"
                                            placeholder="Наименование" id="name" name="name"
-{{--                                           @if(isset($_GET['name'])) value="{{$_GET['name']}}" @endif --}}
+                                        {{--                                           @if(isset($_GET['name'])) value="{{$_GET['name']}}" @endif --}}
                                     >
                                 </div>
                             </div>
@@ -55,14 +55,14 @@
                                     <input type="search" class="form-control form-control-sm"
                                            placeholder="от" id="delivery_cost_from" name="delivery_cost_from"
                                            aria-label="Начальная стоимость поставки (с точкой и двумя знаками)"
-{{--                                           @if(isset($_GET['delivery_cost_from'])) value="{{$_GET['delivery_cost_from']}}" @endif --}}
+                                        {{--                                           @if(isset($_GET['delivery_cost_from'])) value="{{$_GET['delivery_cost_from']}}" @endif --}}
                                     >
                                 </div>
                                 <div class="input-group">
                                     <input type="search" class="form-control form-control-sm"
                                            placeholder="до" id="delivery_cost_to" name="delivery_cost_to"
                                            aria-label="Конечная стоимость поставки (с точкой и двумя знаками)"
-{{--                                           @if(isset($_GET['delivery_cost_to'])) value="{{$_GET['delivery_cost_to']}}" @endif --}}
+                                        {{--                                           @if(isset($_GET['delivery_cost_to'])) value="{{$_GET['delivery_cost_to']}}" @endif --}}
                                     >
                                     <span class="input-group-text form-control-sm">0.00</span>
                                 </div>
@@ -70,7 +70,8 @@
                             <div class="col-sm-2">
                                 <div class="form-group">
                                     <label for="regions">Регион:</label>
-                                    <select class="select2 form-control-sm" multiple="multiple" data-placeholder="Выбирите регион"
+                                    <select class="select2 form-control-sm" multiple="multiple"
+                                            data-placeholder="Выбирите регион"
                                             style="width: 100%;"
                                             id="regions" name="regions[]">>
                                         @foreach($regions as $region)
@@ -101,9 +102,9 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="input-group-append">
-                                <button type="submit" class="btn btn-sm btn-default">
-                                    <i class="fa fa-search"></i>
+                            <div class="input-group-append mt-3">
+                                <button type="submit" class="btn btn-block btn-secondary rounded">
+                                    <i class="">Поиск</i>
                                 </button>
                             </div>
                         </div>
