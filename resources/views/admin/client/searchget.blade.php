@@ -96,7 +96,7 @@
                             <div class="col-sm-2">
                                 <div class="form-group">
                                     <label for="order">Порядок сортировки:</label>
-                                    <select class="form-control  form-control-sm" id="order" name="order">
+                                    <select class="form-control form-control-sm" id="order" name="order">
                                         <option value="asc">По возрастанию</option>
                                         <option value="desc">По убыванию</option>
                                     </select>
