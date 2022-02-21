@@ -24,10 +24,16 @@
         <section class="content">
             <div class="row">
                 <div class="col-2 mb-3">
-                    <a href="{{ route('admin.client.create') }}" type="button" class="btn btn-block btn-primary">Добавить</a>
+                    <a href="{{ route('admin.client.create') }}" type="button"
+                       class="btn btn-block btn-primary">Добавить</a>
                 </div>
                 <div class="col-2 mb-3">
-                    <a href="{{ route('admin.client.soft') }}" type="button" class="btn btn-block btn-info">Удалённые</a>
+                    <a href="{{ route('admin.client.soft') }}" type="button"
+                       class="btn btn-block btn-info">Удалённые</a>
+                </div>
+                <div class="col-2 mb-3">
+                    <a href="{{ route('admin.client.searchget') }}" type="button"
+                       class="btn btn-block btn-secondary">Поиск</a>
                 </div>
             </div>
             <div class="row">
