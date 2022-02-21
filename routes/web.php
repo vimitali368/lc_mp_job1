@@ -69,4 +69,6 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
 
 Auth::routes();
 
+Route::get('/enter', [App\Http\Controllers\EnterController::class, 'index'])->name('enter');
+//AdminLTE login
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
