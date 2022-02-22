@@ -23,15 +23,13 @@
 <div id="app">
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
-            @auth
-                <div class="nav-item">
-                    <a href="{{ url('/admin') }}" class="">Админка</a>
-                </div>
-            @endauth
             <div>
                 <a class="navbar-brand" href="{{ url('/home') }}">
                     Супер сайт Иванова
                 </a>
+            </div>
+            <div class="nav-item">
+                <a href="{{ url('/admin') }}" class="">Админка</a>
             </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
