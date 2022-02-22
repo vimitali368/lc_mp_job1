@@ -28,9 +28,13 @@
                     Супер сайт Иванова
                 </a>
             </div>
-            <div class="nav-item">
-                <a href="{{ url('/admin') }}" class="">Админка</a>
-            </div>
+            @auth
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('admin') }}">Админка</a>
+                    </li>
+                </ul>
+            @endauth
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
