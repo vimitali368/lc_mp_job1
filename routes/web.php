@@ -45,6 +45,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
         Route::get('/searchget', 'SearchgetController')->name('admin.fertilizer.searchget');
         Route::post('/searchpost', 'SearchpostController')->name('admin.fertilizer.searchpost');
         Route::get('/create', 'CreateController')->name('admin.fertilizer.create');
+        Route::get('/import', 'ImportController')->name('admin.fertilizer.import');
         Route::post('/store', 'StoreController')->name('admin.fertilizer.store');
         Route::get('/{fertilizer}', 'ShowController')->name('admin.fertilizer.show');
         Route::get('/{fertilizer}/edit', 'EditController')->name('admin.fertilizer.edit');
