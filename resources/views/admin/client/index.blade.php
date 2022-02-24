@@ -28,6 +28,9 @@
                        class="btn btn-block btn-primary">Добавить</a>
                 </div>
                 <div class="col-2 mb-3">
+                    <a href="{{ route('admin.client.import') }}" type="button" class="btn btn-block btn-success">Импорт из Excel</a>
+                </div>
+                <div class="col-2 mb-3">
                     <a href="{{ route('admin.client.soft') }}" type="button"
                        class="btn btn-block btn-info">Удалённые</a>
                 </div>

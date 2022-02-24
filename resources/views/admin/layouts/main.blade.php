@@ -70,11 +70,21 @@
 <script src="{{ asset('plugins/daterangepicker/daterangepicker.js') }}"></script>
 <!-- overlayScrollbars -->
 <script src="{{ asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
+<!-- bs-custom-file-input -->
+<script src="{{ asset('plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('dist/js/adminlte.js') }}"></script>
 <script>
     //Initialize Select2 Elements
     $('.select2').select2()
+    $(function () {
+        bsCustomFileInput.init();
+    });
 </script>
+<style>
+    .custom-file-input:lang(en) ~ .custom-file-label::after {
+        content: "...";
+    }
+</style>
 </body>
 </html>
