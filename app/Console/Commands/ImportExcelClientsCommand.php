@@ -16,7 +16,7 @@ class ImportExcelClientsCommand extends Command
     public function handle()
     {
         ini_set('memory_limit', '-1');
-        Excel::import(new ClientsImport(), Storage::path('excel/' . '02_Clients.xls'));
+        Excel::import(new ClientsImport(), Storage::path('excel/' . 'Clients.xls'));
 //        public_path('excel/' . 'Clients.xlsx'));
 
         dd('finish');
