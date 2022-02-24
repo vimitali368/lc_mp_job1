@@ -7,12 +7,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Импорт удобрения из Excel</h1>
+                        <h1 class="m-0">Импорт клиентов из Excel</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('admin') }}">Админка</a></li>
-                            <li class="breadcrumb-item"><a href="{{ route('admin.fertilizer.index') }}">Удобрения</a>
+                            <li class="breadcrumb-item"><a href="{{ route('admin.client.index') }}">Клиенты</a>
                             </li>
                             <li class="breadcrumb-item active">Импорт</li>
                         </ol>
@@ -25,7 +25,7 @@
         <!-- Main content -->
         <section class="content">
             <div class="row ml-3">
-                <form action="{{ route('admin.fertilizer.excel') }}" method="POST" class="w-100" enctype="multipart/form-data">
+                <form action="{{ route('admin.client.excel') }}" method="POST" class="w-100" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group col-6">
                         <label>Файл для импорта</label>

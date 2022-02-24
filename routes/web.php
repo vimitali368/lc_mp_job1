@@ -33,7 +33,9 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
         Route::get('/searchget', 'SearchgetController')->name('admin.client.searchget');
         Route::post('/searchpost', 'SearchpostController')->name('admin.client.searchpost');
         Route::get('/create', 'CreateController')->name('admin.client.create');
+        Route::get('/import', 'ImportController')->name('admin.client.import');
         Route::post('/store', 'StoreController')->name('admin.client.store');
+        Route::post('/excel', 'ExcelController')->name('admin.client.excel');
         Route::get('/{client}', 'ShowController')->name('admin.client.show');
         Route::get('/{client}/edit', 'EditController')->name('admin.client.edit');
         Route::patch('/{client}', 'UpdateController')->name('admin.client.update');
@@ -47,6 +49,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
         Route::get('/create', 'CreateController')->name('admin.fertilizer.create');
         Route::get('/import', 'ImportController')->name('admin.fertilizer.import');
         Route::post('/store', 'StoreController')->name('admin.fertilizer.store');
+        Route::post('/excel', 'ExcelController')->name('admin.fertilizer.excel');
         Route::get('/{fertilizer}', 'ShowController')->name('admin.fertilizer.show');
         Route::get('/{fertilizer}/edit', 'EditController')->name('admin.fertilizer.edit');
         Route::patch('/{fertilizer}', 'UpdateController')->name('admin.fertilizer.update');
