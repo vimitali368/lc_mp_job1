@@ -47,7 +47,12 @@
                     <div class="form-group">
                         <input type="submit" class="btn btn-primary" value="Импорт">
                     </div>
+                    <div>
+                        <label>{{ isset($data['outMessage']) ? $data['outMessage'] : '' }}</label>
+                    </div>
+
                 </form>
+            </div>
         </section>
         <!-- /.content -->
     </div>
