@@ -65,6 +65,9 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
         Route::patch('/{user}', 'UpdateController')->name('admin.user.update');
         Route::delete('/{user}', 'DeleteController')->name('admin.user.delete');
     });
+    Route::group(['namespace' => 'Status', 'prefix' => 'statuses'], function () {
+        Route::get('/', 'IndexController')->name('admin.status.index');
+    });
 });
 
 Auth::routes();
