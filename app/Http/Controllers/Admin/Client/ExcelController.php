@@ -21,6 +21,7 @@ class ExcelController extends Controller
         Excel::import(new ClientsImport(), Storage::path($data['excel_input_file']));
 //        Artisan::call('import:excel', []);
 //        Client::firstOrCreate($data);
-        return redirect()->route('admin.client.index');
+        $outMessage = 'Данные импортируются';
+        return redirect()->route('admin.client.index')->with('success', $outMessage);
     }
 }

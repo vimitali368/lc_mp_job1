@@ -30,19 +30,21 @@
                             <table class="table table-hover text-nowrap table-sm">
                                 <thead>
                                 <tr>
-                                    <th class="align-middle">ID</th>
-                                    <th class="align-middle">Статус</th>
-                                    <th class="text-wrap">Пользователь</th>
-                                    <th class="text-wrap">Дата создания</th>
+                                    <th class="text-center col-1">ID</th>
+                                    <th class="text-center col-1">Статус</th>
+                                    <th class="text-center col-1">Пользователь</th>
+                                    <th class="text-center col-7">Данные</th>
+                                    <th class="text-center col-2">Дата создания</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($statuses as $status)
                                     <tr>
-                                        <td>{{ $status->id }}</td>
-                                        <td>{{ $status->status }}</td>
-                                        <td>{{ $status->user_id }}</td>
-                                        <td>{{ $status->created_at }}</td>
+                                        <td class="text-center">{{ $status->id }}</td>
+                                        <td class="text-center">{{ $status->status }}</td>
+                                        <td class="text-center">{{ $status->user_id }}</td>
+                                        <td >{{ $status->jsonb }}</td>
+                                        <td class="text-center">{{ $status->created_at }}</td>
                                     </tr>
                                 @endforeach
                                 </tbody>

@@ -25,7 +25,23 @@
         <!-- Main content -->
         <section class="content">
             <div class="row ml-3">
-                <form action="{{ route('admin.fertilizer.excel') }}" method="POST" class="w-100" enctype="multipart/form-data">
+                @if (\Session::has('success'))
+                    <div class="alert alert-success">
+                        {{ \Session::get('success') }}
+                    </div>
+                @endif
+                @if($errors->any())
+                    <h5 class="text-danger">В вашем Excel файле присутствуют ошибки</h5>
+                    <ol>
+                        @foreach($errors->all() as $error)
+                            <li>
+                                {{ $error }}
+                            </li>
+                        @endforeach
+                    </ol>
+                @endif
+                <form action="{{ route('admin.fertilizer.excel') }}" method="POST" class="w-100"
+                      enctype="multipart/form-data">
                     @csrf
                     <div class="form-group col-6">
                         <label>Файл для импорта</label>
@@ -47,10 +63,6 @@
                     <div class="form-group">
                         <input type="submit" class="btn btn-primary" value="Импорт">
                     </div>
-                    <div>
-                        <label>{{ isset($data['outMessage']) ? $data['outMessage'] : '' }}</label>
-                    </div>
-
                 </form>
             </div>
         </section>

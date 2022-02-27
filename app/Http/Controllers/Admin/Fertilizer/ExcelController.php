@@ -24,7 +24,9 @@ class ExcelController extends Controller
 //        Artisan::call('import:excel', []);
 //        Fertilizer::firstOrCreate($data);
         $outMessage = 'Данные импортируются';
-        return ($outMessage);
+        return back();
+//        ->withErrors()->with('success', $outMessage);
+//        return redirect()->back()->with('success', $outMessage);
 //        return redirect()->route('admin.fertilizer.index');
     }
 }

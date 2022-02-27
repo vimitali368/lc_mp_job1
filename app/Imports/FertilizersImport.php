@@ -6,8 +6,9 @@ use App\Models\Fertilizer;
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\ToCollection;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
+use Maatwebsite\Excel\Concerns\WithValidation;
 
-class FertilizersImport implements ToCollection, WithHeadingRow
+class FertilizersImport implements ToCollection, WithHeadingRow, WithValidation
 {
     /**
      * @param Collection $collection
@@ -32,5 +33,20 @@ class FertilizersImport implements ToCollection, WithHeadingRow
                 ]);
             }
         }
+    }
+
+    public function rules(): array
+    {
+        return [
+            'naimenovanie' => 'required|string',
+            'norma_azot' => 'required|numeric',
+            'norma_fosfor' => 'required|numeric',
+            'norma_kalii' => 'required|numeric',
+            'kultura_id' => 'required|numeric|exists:cultures,id',
+            'raion' => 'required|string',
+            'stoimost' => 'required|numeric',
+            'opisanie' => 'required|string',
+            'naznacenie' => 'required|string'
+        ];
     }
 }

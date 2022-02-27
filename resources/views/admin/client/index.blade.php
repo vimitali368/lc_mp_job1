@@ -39,6 +39,11 @@
                        class="btn btn-block btn-secondary">Поиск</a>
                 </div>
             </div>
+            @if (\Session::has('success'))
+                <div class="alert alert-success">
+                    {{ \Session::get('success') }}
+                </div>
+            @endif
             <div class="row">
                 <div class="col-12">
                     <div class="card">

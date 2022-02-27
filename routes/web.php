@@ -67,6 +67,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
     });
     Route::group(['namespace' => 'Status', 'prefix' => 'statuses'], function () {
         Route::get('/', 'IndexController')->name('admin.status.index');
+        Route::post('/store', 'StoreController')->name('admin.status.store');
     });
 });
 
