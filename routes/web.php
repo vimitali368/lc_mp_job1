@@ -38,6 +38,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
         Route::post('/store', 'StoreController')->name('admin.client.store');
         Route::post('/excel', 'ExcelController')->name('admin.client.excel');
         Route::get('/{client}', 'ShowController')->name('admin.client.show');
+        Route::get('/{client}/word', 'WordController')->name('admin.client.word');
         Route::get('/{client}/edit', 'EditController')->name('admin.client.edit');
         Route::patch('/{client}', 'UpdateController')->name('admin.client.update');
         Route::delete('/{client}', 'DeleteController')->name('admin.client.delete');

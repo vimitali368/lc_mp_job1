@@ -28,10 +28,12 @@
                        class="btn btn-block btn-primary">Добавить</a>
                 </div>
                 <div class="col-2 mb-3">
-                    <a href="{{ route('admin.client.import') }}" type="button" class="btn btn-block btn-success">Импорт из Excel</a>
+                    <a href="{{ route('admin.client.import') }}" type="button" class="btn btn-block btn-success">Импорт
+                        из Excel</a>
                 </div>
                 <div class="col-2 mb-3">
-                    <a href="{{ route('admin.client.export') }}" type="button" class="btn btn-block btn-success">Экспорт из Excel</a>
+                    <a href="{{ route('admin.client.export') }}" type="button" class="btn btn-block btn-success">Экспорт
+                        из Excel</a>
                 </div>
                 <div class="col-2 mb-3">
                     <a href="{{ route('admin.client.soft') }}" type="button"
@@ -42,11 +44,11 @@
                        class="btn btn-block btn-secondary">Поиск</a>
                 </div>
             </div>
-{{--            @if (\Session::has('success'))--}}
-{{--                <div class="alert alert-success">--}}
-{{--                    {{ \Session::get('success') }}--}}
-{{--                </div>--}}
-{{--            @endif--}}
+            {{--            @if (\Session::has('success'))--}}
+            {{--                <div class="alert alert-success">--}}
+            {{--                    {{ \Session::get('success') }}--}}
+            {{--                </div>--}}
+            {{--            @endif--}}
             @if (session('status'))
                 <div class="alert alert-success" role="alert">
                     {{ session('status') }}
@@ -65,7 +67,7 @@
                                     <th>Дата договора</th>
                                     <th>Стоимость поставки</th>
                                     <th>Регион</th>
-                                    <th colspan="3" class="text-center">Действия</th>
+                                    <th colspan="4" class="text-center">Действия</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -76,6 +78,11 @@
                                         <td>{{ $client->contract_date }}</td>
                                         <td>{{ $client->delivery_cost }}</td>
                                         <td>{{ $client->region }}</td>
+                                        <td class="text-center">
+                                            <a href="{{ route('admin.client.word', $client->id) }}">
+                                                <i class="far fa-file-word"></i>
+                                            </a>
+                                        </td>
                                         <td class="text-center">
                                             <a href="{{ route('admin.client.show', $client->id) }}"><i
                                                     class="far fa-eye"></i></a></td>
