@@ -31,6 +31,9 @@
                     <a href="{{ route('admin.client.import') }}" type="button" class="btn btn-block btn-success">Импорт из Excel</a>
                 </div>
                 <div class="col-2 mb-3">
+                    <a href="{{ route('admin.client.export') }}" type="button" class="btn btn-block btn-success">Экспорт из Excel</a>
+                </div>
+                <div class="col-2 mb-3">
                     <a href="{{ route('admin.client.soft') }}" type="button"
                        class="btn btn-block btn-info">Удалённые</a>
                 </div>
@@ -39,9 +42,14 @@
                        class="btn btn-block btn-secondary">Поиск</a>
                 </div>
             </div>
-            @if (\Session::has('success'))
-                <div class="alert alert-success">
-                    {{ \Session::get('success') }}
+{{--            @if (\Session::has('success'))--}}
+{{--                <div class="alert alert-success">--}}
+{{--                    {{ \Session::get('success') }}--}}
+{{--                </div>--}}
+{{--            @endif--}}
+            @if (session('status'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('status') }}
                 </div>
             @endif
             <div class="row">
@@ -92,9 +100,7 @@
 
                     </div>
                 </div>
-
             </div>
-
         </section>
         <!-- /.content -->
     </div>

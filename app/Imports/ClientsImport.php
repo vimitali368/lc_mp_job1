@@ -23,7 +23,7 @@ class ClientsImport implements
     public function collection(Collection $collection)
     {
         foreach ($collection as $item) {
-//dd($item);
+//            dd($item);
 //            dd($item['data_dogovora']);
 //            dd(\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($item['data_dogovora'])->format('Y-m-d'));
             if (isset($item['naimenovanie']) && $item['naimenovanie'] != null) {
@@ -43,16 +43,16 @@ class ClientsImport implements
     {
         return [
             'naimenovanie' => 'required|string',
-            'data_dogovora' => 'required|date',
-            'stoimost_postavki' => 'required|numeric',
-            'region' => 'required|string',
+//            'data_dogovora' => 'required',
+//            'stoimost_postavki' => 'required|numeric',
+//            'region' => 'required|string',
         ];
     }
 
     public function onFailure(Failure ...$failures)
     {
 //        foreach ($failures as $failure) {
-////            dd($failure);
+//            dd($failure);
 //        }
         // TODO: Implement onFailure() method.
         $data = [

@@ -34,6 +34,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
         Route::post('/searchpost', 'SearchpostController')->name('admin.client.searchpost');
         Route::get('/create', 'CreateController')->name('admin.client.create');
         Route::get('/import', 'ImportController')->name('admin.client.import');
+        Route::get('/export', 'ExportController')->name('admin.client.export');
         Route::post('/store', 'StoreController')->name('admin.client.store');
         Route::post('/excel', 'ExcelController')->name('admin.client.excel');
         Route::get('/{client}', 'ShowController')->name('admin.client.show');
@@ -48,6 +49,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
         Route::post('/searchpost', 'SearchpostController')->name('admin.fertilizer.searchpost');
         Route::get('/create', 'CreateController')->name('admin.fertilizer.create');
         Route::get('/import', 'ImportController')->name('admin.fertilizer.import');
+        Route::get('/export', 'ExportController')->name('admin.fertilizer.export');
         Route::post('/store', 'StoreController')->name('admin.fertilizer.store');
         Route::post('/excel', 'ExcelController')->name('admin.fertilizer.excel');
         Route::get('/{fertilizer}', 'ShowController')->name('admin.fertilizer.show');

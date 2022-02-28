@@ -30,6 +30,9 @@
                     <a href="{{ route('admin.fertilizer.import') }}" type="button" class="btn btn-block btn-success">Импорт из Excel</a>
                 </div>
                 <div class="col-2 mb-3">
+                    <a href="{{ route('admin.fertilizer.export') }}" type="button" class="btn btn-block btn-success">Экспорт из Excel</a>
+                </div>
+                <div class="col-2 mb-3">
                     <a href="{{ route('admin.fertilizer.soft') }}" type="button"
                        class="btn btn-block btn-info">Удалённые</a>
                 </div>

@@ -25,11 +25,16 @@
         <!-- Main content -->
         <section class="content">
             <div class="row ml-3">
-                @if (\Session::has('success'))
-                    <div class="alert alert-success">
-                        {{ \Session::get('success') }}
+                @if (session('status'))
+                    <div class="alert alert-success" role="alert">
+                        {{ session('status') }}
                     </div>
                 @endif
+{{--                @if (\Session::has('success'))--}}
+{{--                    <div class="alert alert-success">--}}
+{{--                        {{ \Session::get('success') }}--}}
+{{--                    </div>--}}
+{{--                @endif--}}
                 @if($errors->any())
                     <h5 class="text-danger">В вашем Excel файле присутствуют ошибки</h5>
                     <ol>
