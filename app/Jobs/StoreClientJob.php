@@ -3,7 +3,7 @@
 namespace App\Jobs;
 
 use App\Http\Controllers\Admin\Status\StoreController;
-use App\Imports\FertilizersImport;
+use App\Imports\ClientsImport;
 use App\Models\ImportStatus;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Storage;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Collection;
 
-class StoreFertilizerJob implements ShouldQueue
+class StoreClientJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
@@ -41,8 +41,8 @@ class StoreFertilizerJob implements ShouldQueue
     {
         try {
             ini_set('memory_limit', '-1');
-            Excel::import(new FertilizersImport(), $this->filePath);
-            // Create a new collection for our example
+            Excel::import(new ClientsImport(), $this->filePath);
+//             Create a new collection for our example
             $collection = new Collection([
                 ['file' => $this->filePath],
             ]);
@@ -69,7 +69,7 @@ class StoreFertilizerJob implements ShouldQueue
             dd($data);
             return route('admin.status.store', compact('data'));
         }
-//        public_path('excel/' . 'Fertilizers.xlsx'));
+//        public_path('excel/' . 'Clients.xlsx'));
 
 //        dd('finish');
     }

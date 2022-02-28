@@ -6,8 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Fertilizer\ExcelRequest;
 use App\Imports\FertilizersImport;
 use App\Jobs\StoreFertilizerJob;
-use App\Models\Fertilizer;
-use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Storage;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -24,7 +22,9 @@ class ExcelController extends Controller
 //        Artisan::call('import:excel', []);
 //        Fertilizer::firstOrCreate($data);
         $outMessage = 'Данные импортируются';
-        return ($outMessage);
+        return back()->withStatus($outMessage);
+//        ->withErrors()->with('success', $outMessage);
+//        return redirect()->back()->with('success', $outMessage);
 //        return redirect()->route('admin.fertilizer.index');
     }
 }
