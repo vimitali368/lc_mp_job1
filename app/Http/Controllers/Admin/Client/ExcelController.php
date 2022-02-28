@@ -15,7 +15,7 @@ class ExcelController extends Controller
     {
         $data = $request->validated();
 //        dd($data);
-        $data['excel_input_file'] = Storage::put('/excel', $data['excel_input_file']);
+        $data['excel_input_file'] = Storage::put('/docs/excel/in', $data['excel_input_file']);
 //        dd($data['excel_input_file']);
 //        ini_set('memory_limit', '-1');
         StoreClientJob::dispatch(Storage::path($data['excel_input_file']));
