@@ -9,6 +9,7 @@ class ShowController extends Controller
 {
     public function __invoke(Client $client)
     {
+//        dd($client);
         return view('admin.client.show', compact('client'));
     }
 }
