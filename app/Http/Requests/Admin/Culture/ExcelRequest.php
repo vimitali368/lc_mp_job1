@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Admin\Status;
+namespace App\Http\Requests\Admin\Culture;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreRequest extends FormRequest
+class ExcelRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,9 +24,7 @@ class StoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'status' => 'required|numeric',
-            'user_id' => 'required|numeric|exists:users,id',
-            'jsonb' => 'nullable|json',
+            'excel_input_file' => 'required|file'
         ];
     }
 }

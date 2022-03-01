@@ -21,7 +21,9 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
         Route::get('/', 'IndexController')->name('admin.culture.index');
         Route::get('/soft', 'SoftController')->name('admin.culture.soft');
         Route::get('/create', 'CreateController')->name('admin.culture.create');
+        Route::get('/import', 'ImportController')->name('admin.culture.import');
         Route::post('/store', 'StoreController')->name('admin.culture.store');
+        Route::post('/excel', 'ExcelController')->name('admin.culture.excel');
         Route::get('/{culture}', 'ShowController')->name('admin.culture.show');
         Route::get('/{culture}/edit', 'EditController')->name('admin.culture.edit');
         Route::patch('/{culture}', 'UpdateController')->name('admin.culture.update');
