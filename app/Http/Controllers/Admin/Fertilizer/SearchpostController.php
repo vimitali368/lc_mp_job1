@@ -128,6 +128,6 @@ class SearchpostController extends Controller
         $fertilizers = Fertilizer::filter($filter)->get();
 //        dd($fertilizers);
         return view('admin.fertilizer.searchget',
-            compact('fertilizers', 'cultures', 'districts', 'costs'));
+            compact('fertilizers', 'cultures', 'districts', 'costs', 'data'));
     }
 }
