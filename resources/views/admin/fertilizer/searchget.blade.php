@@ -34,9 +34,7 @@
                                     <label for="name" class="text-center">Наименование:</label>
                                     <input type="search" class="form-control form-control-sm"
                                            placeholder="Наименование" id="name" name="name"
-                                           {{--                                           value="{{ $fertilizer->norm_nitrogen }}">--}}
-                                           {{--                                           @dd($_POST)--}}
-                                           @if(isset($_GET['name'])) value="{{$_GET['name']}}" @endif
+                                           @if(isset($data['name'])) value="{{ $data['name'] }}" @endif
                                     >
                                 </div>
                             </div>
@@ -47,14 +45,24 @@
                                     <input type="search" class="form-control form-control-sm"
                                            placeholder="от" id="norm_nitrogen_from" name="norm_nitrogen_from"
                                            aria-label="Начальное значение нормы (с точкой и двумя знаками)"
-                                        {{--                                           @if(isset($_GET['norm_nitrogen_from'])) value="{{$_GET['norm_nitrogen_from']}}" @endif --}}
+                                           @if(isset($data['norm_nitrogen_from']))
+                                           value="{{ $data['norm_nitrogen_from'] }}"
+                                           @endif
+                                           @if(isset($data['norm_nitrogen']))
+                                           value="{{ $data['norm_nitrogen'][0] }}"
+                                        @endif >
                                     >
                                 </div>
                                 <div class="input-group">
                                     <input type="search" class="form-control form-control-sm"
                                            placeholder="до" id="norm_nitrogen_to" name="norm_nitrogen_to"
                                            aria-label="Конечное значение нормы (с точкой и двумя знаками)"
-                                        {{--                                           @if(isset($_GET['norm_nitrogen_to'])) value="{{$_GET['norm_nitrogen_to']}}" @endif --}}
+                                           @if(isset($data['norm_nitrogen_to']))
+                                           value="{{ $data['norm_nitrogen_to'] }}"
+                                           @endif
+                                           @if(isset($data['norm_nitrogen']))
+                                           value="{{ $data['norm_nitrogen'][1] }}"
+                                        @endif >
                                     >
                                     <span class="input-group-text form-control-sm">0.00</span>
                                 </div>
