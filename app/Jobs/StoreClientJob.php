@@ -67,7 +67,7 @@ class StoreClientJob implements ShouldQueue
             $data = [
                 'status' => 2,
                 'user_id' => 1,
-                'jsonb' => json_encode($exception->errors)
+                'jsonb' => json_encode($exception)
             ];
 //            dd($data);
             ImportStatus::create($data);
