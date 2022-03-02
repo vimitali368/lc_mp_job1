@@ -17,7 +17,7 @@ class ImportStatus extends Model
     protected $table = 'import_statuses';
     protected $guarded = false;
 
-    public static function getStatus() {
+    public static function getStatuses() {
         return [
             self::IMPORT_STATUS_INPROGRESS => 'В процессе',
             self::IMPORT_STATUS_ERROR => 'Ошибка во время импорта',
