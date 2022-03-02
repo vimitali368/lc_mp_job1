@@ -91,8 +91,10 @@ class SearchpostController extends Controller
 //          GROUP BY clients.region
 //          ORDER BY clients.region
         $clients = Client::filter($filter)->get();
+//        dd($data);
+//        dd($regions);
 //        dd($clients);
 //        $clients = Client::where('name', 'like', "%{$data['name']}%")->get();
-        return view('admin.client.searchget', compact('clients', 'regions'));
+        return view('admin.client.searchget', compact('clients', 'regions', 'data'));
     }
 }

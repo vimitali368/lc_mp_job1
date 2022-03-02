@@ -33,7 +33,7 @@
                                     <label for="name" class="text-center">Наименование:</label>
                                     <input type="search" class="form-control form-control-sm"
                                            placeholder="Наименование" id="name" name="name"
-                                        {{--                                           @if(isset($_GET['name'])) value="{{$_GET['name']}}" @endif --}}
+                                           @if(isset($data['name'])) value="{{ $data['name'] }}" @endif
                                     >
                                 </div>
                             </div>
@@ -42,10 +42,20 @@
                                     <label for="contract_date_from">Дата договора:</label>
                                     <input type="date" class="form-control form-control-sm"
                                            placeholder="от" id="contract_date_from" name="contract_date_from"
-                                           @if(isset($_GET['contract_date_from'])) value="{{$_GET['contract_date_from']}}" @endif >
+                                           @if(isset($data['contract_date_from']))
+                                           value="{{ $data['contract_date_from'] }}"
+                                           @endif
+                                           @if(isset($data['contract_date']))
+                                           value="{{ $data['contract_date'][0] }}"
+                                        @endif >
                                     <input type="date" class="form-control form-control-sm"
                                            placeholder="до" id="contract_date_to" name="contract_date_to"
-                                           @if(isset($_GET['contract_date_to'])) value="{{$_GET['contract_date_to']}}" @endif >
+                                           @if(isset($data['contract_date_to']))
+                                           value="{{ $data['contract_date_to'] }}"
+                                           @endif
+                                           @if(isset($data['contract_date']))
+                                           value="{{ $data['contract_date'][1] }}"
+                                        @endif >
                                 </div>
                             </div>
                             <div class="col-sm-2">
@@ -55,18 +65,31 @@
                                     <input type="search" class="form-control form-control-sm"
                                            placeholder="от" id="delivery_cost_from" name="delivery_cost_from"
                                            aria-label="Начальная стоимость поставки (с точкой и двумя знаками)"
-                                        {{--                                           @if(isset($_GET['delivery_cost_from'])) value="{{$_GET['delivery_cost_from']}}" @endif --}}
+                                           @if(isset($data['delivery_cost_from']))
+                                           value="{{ $data['delivery_cost_from'] }}"
+                                           @endif
+                                           @if(isset($data['delivery_cost']))
+                                           value="{{ $data['delivery_cost'][0] }}"
+                                        @endif
                                     >
                                 </div>
                                 <div class="input-group">
                                     <input type="search" class="form-control form-control-sm"
                                            placeholder="до" id="delivery_cost_to" name="delivery_cost_to"
                                            aria-label="Конечная стоимость поставки (с точкой и двумя знаками)"
-                                        {{--                                           @if(isset($_GET['delivery_cost_to'])) value="{{$_GET['delivery_cost_to']}}" @endif --}}
+                                           @if(isset($data['delivery_cost_to']))
+                                           value="{{ $data['delivery_cost_to'] }}"
+                                           @endif
+                                           @if(isset($data['delivery_cost']))
+                                           value="{{ $data['delivery_cost'][1] }}"
+                                        @endif
                                     >
                                     <span class="input-group-text form-control-sm">0.00</span>
                                 </div>
                             </div>
+                            {{--                            @if(isset($data['regions']))--}}
+                            {{--                                @dd($data['regions'])--}}
+                            {{--                            @endif--}}
                             <div class="col-sm-2">
                                 <div class="form-group">
                                     <label for="regions">Регион:</label>
@@ -75,21 +98,36 @@
                                             style="width: 100%;"
                                             id="regions" name="regions[]">>
                                         @foreach($regions as $region)
-                                            <option value="{{ $region->region }}">
+                                            <option
+                                                @if(isset( $data['regions'] ))
+                                                {{ is_array( $data['regions']) && in_array($region->region, $data['regions']) ? ' selected' : ''}}
+                                                @endif
+                                                value="{{ $region->region }}">
                                                 {{ $region->region }}
                                             </option>
                                         @endforeach
                                     </select>
                                 </div>
                             </div>
-                            {{--                                                        <option value="{{ $region->region }}"--}}
-                            {{--                                                            {{ $region->region == old('region') ? ' selected' : '' }}--}}
+                            {{--                            @if(isset($data['sort']))--}}
+                            {{--                                @dd($data['sort'][0])--}}
+                            {{--                            @endif--}}
                             <div class=" col-sm-2">
                                 <div class="form-group">
                                     <label for="sort">Сортировать по:</label>
                                     <select class="form-control form-control-sm" id="sort" name="sort">
-                                        <option value="name">Наименование</option>
-                                        <option value="delivery_cost">Стоимость поставки</option>
+                                        <option value="name"
+                                        @if(isset( $data['sort'] ))
+                                            {{ $data['sort'][0] == 'name' ? ' selected' : '' }}
+                                            @endif
+                                        >Наименование
+                                        </option>
+                                        <option value="delivery_cost"
+                                        @if(isset( $data['sort'] ))
+                                            {{ $data['sort'][0] == 'delivery_cost' ? ' selected' : '' }}
+                                            @endif
+                                        >Стоимость поставки
+                                        </option>
                                     </select>
                                 </div>
                             </div>
@@ -97,8 +135,18 @@
                                 <div class="form-group">
                                     <label for="order">Порядок сортировки:</label>
                                     <select class="form-control form-control-sm" id="order" name="order">
-                                        <option value="asc">По возрастанию</option>
-                                        <option value="desc">По убыванию</option>
+                                        <option value="asc"
+                                        @if(isset( $data['sort'] ))
+                                            {{ $data['sort'][1] == 'asc' ? ' selected' : '' }}
+                                            @endif
+                                        >По возрастанию
+                                        </option>
+                                        <option value="desc"
+                                        @if(isset( $data['sort'] ))
+                                            {{ $data['sort'][1] == 'desc' ? ' selected' : '' }}
+                                            @endif
+                                        >По убыванию
+                                        </option>
                                     </select>
                                 </div>
                             </div>
