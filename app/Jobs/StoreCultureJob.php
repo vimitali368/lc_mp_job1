@@ -56,8 +56,8 @@ class StoreCultureJob implements ShouldQueue
 //TODO: 'jsonb' => filename
 //
             $data = [
-                'status' => '1',
-                'user_id' => '1',
+                'status' => 1,
+                'user_id' => 1,
 //                'jsonb' => '1',
             ];
 //        dd($data);
@@ -65,8 +65,8 @@ class StoreCultureJob implements ShouldQueue
 //            return route('admin.status.store', compact('data'));
         } catch (\Exception $exception) {
 //            $data = [
-//                'status' => '2',
-//                'user_id' => '1',
+//                'status' => 2,
+//                'user_id' => 1,
 //                'jsonb' => '1',
 //            ];
 //        dd($data);

@@ -26,7 +26,7 @@ class StoreRequest extends FormRequest
         return [
             'status' => 'required|numeric',
             'user_id' => 'required|numeric|exists:users,id',
-            'jsonb' => 'nullable|json',
+//            'jsonb' => 'nullable|json',
         ];
     }
 }

@@ -19,7 +19,8 @@ class StoreController extends Controller
 //            auth()->check(),
 //            get_class(auth()->guard())
 //        );
-        $request['user_id'] = auth()->user()->id;
+//            TODO: auth()->user()->id
+//        $request['user_id'] = 1;
         $data = $request->validated();
         ImportStatus::create($data);
 //        return redirect()->route('admin.status.index');

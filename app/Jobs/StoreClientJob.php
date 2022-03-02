@@ -50,24 +50,28 @@ class StoreClientJob implements ShouldQueue
             // Convert the above collection to JSON format
             $jsonValue = $collection->toJson();
 //            dd($jsonValue);
+//            TODO: auth()->user()->id
             $data = [
                 'status' => 1,
-                'user_id' => auth()->user()->id,
+                'user_id' => 1,
                 'jsonb' => $jsonValue,
             ];
 //            dd($data);
-            return route('admin.status.store', compact('data'));
+            ImportStatus::create($data);
+//            return route('admin.status.store', compact('data'));
         } catch (\Exception $exception) {
             $collection = new Collection([
                 ['file' => $this->filePath],
             ]);
+//            TODO: auth()->user()->id
             $data = [
                 'status' => 2,
-                'user_id' => auth()->user()->id,
+                'user_id' => 1,
                 'jsonb' => json_encode($exception->errors)
             ];
-            dd($data);
-            return route('admin.status.store', compact('data'));
+//            dd($data);
+            ImportStatus::create($data);
+//            return route('admin.status.store', compact('data'));
         }
 //        public_path('excel/' . 'Clients.xlsx'));
 
