@@ -160,8 +160,6 @@
                                     </select>
                                 </div>
                             </div>
-                            {{--                                                        <option value="{{ $district->district }}"--}}
-                            {{--                                                            {{ $district->district == old('district') ? ' selected' : '' }}--}}
                             <div class="col-sm-2">
                                 <div class="form-group">
                                     <label for="costs">Стоимость:</label>
@@ -287,12 +285,9 @@
                                 </tbody>
                             </table>
                         </div>
-
                     </div>
                 </div>
-
             </div>
-
         </section>
         <!-- /.content -->
     </div>
