@@ -56,8 +56,22 @@ class WordController extends Controller
         ]);
 
         $objWriter = IOFactory::createWriter($phpWord, 'Word2007');
-        $path = Storage::path('docs/contracts/client_' . $client->id . '_' . date('Y-m-d') . '.docx');
-        $objWriter->save($path);
-        return response()->download($path);
+        $fileName = 'client_' . $client->id . '_' . date('Y-m-d') . '.docx';
+//        dd($fileName);
+
+        $filePath = 'docs/contracts/';
+//        dd($filePath);
+
+        $pathStorage = Storage::path($filePath . $fileName);
+//        dd($pathStorage);
+
+        $pathStorageRoot = Storage::path($fileName);
+        $objWriter->save($pathStorageRoot);
+
+        $pathStorageRootUrl = Storage::url($fileName);
+//        dd($pathStorageRootUrl);
+//        dd($pathUrl);
+//        $objWriter->save($path);
+        return response()->download($pathStorageRoot);
     }
 }
