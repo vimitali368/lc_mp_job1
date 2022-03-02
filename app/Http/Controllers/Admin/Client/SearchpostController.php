@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin\Client;
 
 use App\Http\Controllers\Controller;
-use App\Http\Filters\FertilizerFilter;
+use App\Http\Filters\ClientFilter;
 use App\Http\Requests\Admin\Client\FilterRequest;
 use App\Models\Client;
 use Illuminate\Support\Facades\DB;
@@ -29,9 +29,15 @@ class SearchpostController extends Controller
                 $data['contract_date_from'],
                 $data['contract_date_to']
             ];
+            unset($data['contract_date_from']);
+            unset($data['contract_date_to']);
         }
-        unset($data['contract_date_from']);
-        unset($data['contract_date_to']);
+        if (!isset($data['contract_date_from'])) {
+            unset($data['contract_date_from']);
+        }
+        if (!isset($data['contract_date_to'])) {
+            unset($data['contract_date_to']);
+        }
 //        dd($data);
 
         if (isset($data['delivery_cost_from']) && isset($data['delivery_cost_to'])) {
@@ -39,9 +45,15 @@ class SearchpostController extends Controller
                 $data['delivery_cost_from'],
                 $data['delivery_cost_to']
             ];
+            unset($data['delivery_cost_from']);
+            unset($data['delivery_cost_to']);
         }
-        unset($data['delivery_cost_from']);
-        unset($data['delivery_cost_to']);
+        if (!isset($data['delivery_cost_from'])) {
+            unset($data['delivery_cost_from']);
+        }
+        if (!isset($data['delivery_cost_to'])) {
+            unset($data['delivery_cost_to']);
+        }
 //        dd($data);
 
         if (!isset($data['regions'])) {
@@ -56,7 +68,7 @@ class SearchpostController extends Controller
             unset($data['order']);
         }
 //        dd($data);
-        $filter = app()->make(FertilizerFilter::class, [
+        $filter = app()->make(ClientFilter::class, [
             'queryParams' => array_filter($data)
         ]);
 //        dd($filter);
@@ -79,8 +91,10 @@ class SearchpostController extends Controller
 //          GROUP BY clients.region
 //          ORDER BY clients.region
         $clients = Client::filter($filter)->get();
+//        dd($data);
+//        dd($regions);
 //        dd($clients);
 //        $clients = Client::where('name', 'like', "%{$data['name']}%")->get();
-        return view('admin.client.searchget', compact('clients', 'regions'));
+        return view('admin.client.searchget', compact('clients', 'regions', 'data'));
     }
 }
