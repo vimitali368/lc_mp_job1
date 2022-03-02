@@ -64,13 +64,14 @@ class StoreCultureJob implements ShouldQueue
             ImportStatus::create($data);
 //            return route('admin.status.store', compact('data'));
         } catch (\Exception $exception) {
-//            $data = [
-//                'status' => 2,
-//                'user_id' => 1,
-//                'jsonb' => '1',
-//            ];
+//            dd($exception);
+            $data = [
+                'status' => 2,
+                'user_id' => 1,
+                'jsonb' => json_encode($exception),
+            ];
 //        dd($data);
-//            ImportStatus::create($data);
+            ImportStatus::create($data);
 
             //            $collection = new Collection([
 //                ['file' => $this->filePath],

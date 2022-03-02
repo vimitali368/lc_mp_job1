@@ -50,16 +50,17 @@ class CulturesImport implements
 //        }
 
         $data = [
-            'status' => '2',
+            'status' => 2,
+            'user_id' => 1,
             'jsonb' => json_encode($failures),
         ];
-//        dd($data);
 //        StoreController::class($data);
 //        $invokableObj = new StoreController();
 //        $invokableObj = new StoreController();
 //        $invokableObj->__invoke($data);
 
-        return route('admin.status.store', compact('data'));
-//        ImportStatus::Create($data);
+//        dd($data);
+        ImportStatus::сreate($data);
+//        return route('admin.status.store', compact('data'));
     }
 }

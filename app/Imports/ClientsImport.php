@@ -60,7 +60,7 @@ class ClientsImport implements
             'user_id' => 1,
             'jsonb' => json_encode($failures),
         ];
-//        dd($data);
+        dd($failures);
         ImportStatus::Create($data);
     }
 }

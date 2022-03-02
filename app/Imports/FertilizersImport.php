@@ -65,7 +65,7 @@ class FertilizersImport implements
 
         // TODO: auth()->user()->id
         $data = [
-            'status' => '2',
+            'status' => 2,
             'user_id' => 1,
             'jsonb' => json_encode($failures),
         ];
