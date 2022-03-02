@@ -54,13 +54,13 @@ class ClientsImport implements
 //        foreach ($failures as $failure) {
 //            dd($failure);
 //        }
-        // TODO: Implement onFailure() method.
+        // TODO: auth()->user()->id
         $data = [
-            'status' => '2',
-            'user_id' => auth()->user()->id,
+            'status' => 2,
+            'user_id' => 1,
             'jsonb' => json_encode($failures),
         ];
-//        dd($data);
+        dd($failures);
         ImportStatus::Create($data);
     }
 }

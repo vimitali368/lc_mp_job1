@@ -50,9 +50,10 @@ class StoreFertilizerJob implements ShouldQueue
             // Convert the above collection to JSON format
             $jsonValue = $collection->toJson();
 //            dd($jsonValue);
+//            TODO: auth()->user()->id
             $data = [
                 'status' => 1,
-                'user_id' => auth()->user()->id,
+                'user_id' => 1,
                 'jsonb' => $jsonValue,
             ];
 //            dd($data);
@@ -61,12 +62,13 @@ class StoreFertilizerJob implements ShouldQueue
             $collection = new Collection([
                 ['file' => $this->filePath],
             ]);
+            //            TODO: auth()->user()->id
             $data = [
                 'status' => 2,
-                'user_id' => auth()->user()->id,
+                'user_id' => 1,
                 'jsonb' => json_encode($exception->errors)
             ];
-            dd($data);
+//            dd($data);
             return route('admin.status.store', compact('data'));
         }
 //        public_path('excel/' . 'Fertilizers.xlsx'));
