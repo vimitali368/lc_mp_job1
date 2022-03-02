@@ -27,9 +27,15 @@ class SearchpostController extends Controller
                 $data['norm_nitrogen_from'],
                 $data['norm_nitrogen_to']
             ];
+            unset($data['norm_nitrogen_from']);
+            unset($data['norm_nitrogen_to']);
         }
-        unset($data['norm_nitrogen_from']);
-        unset($data['norm_nitrogen_to']);
+        if (!isset($data['norm_nitrogen_from'])) {
+            unset($data['norm_nitrogen_from']);
+        }
+        if (!isset($data['norm_nitrogen_to'])) {
+            unset($data['norm_nitrogen_to']);
+        }
 //        dd($data);
 
         if (isset($data['norm_phosphorus_from']) && isset($data['norm_phosphorus_to'])) {
@@ -37,9 +43,15 @@ class SearchpostController extends Controller
                 $data['norm_phosphorus_from'],
                 $data['norm_phosphorus_to']
             ];
+            unset($data['norm_phosphorus_from']);
+            unset($data['norm_phosphorus_to']);
         }
-        unset($data['norm_phosphorus_from']);
-        unset($data['norm_phosphorus_to']);
+        if (!isset($data['norm_phosphorus_from'])) {
+            unset($data['norm_phosphorus_from']);
+        }
+        if (!isset($data['norm_phosphorus_to'])) {
+            unset($data['norm_phosphorus_to']);
+        }
 //        dd($data);
 
         if (isset($data['norm_potassium_from']) && isset($data['norm_potassium_to'])) {
@@ -47,9 +59,15 @@ class SearchpostController extends Controller
                 $data['norm_potassium_from'],
                 $data['norm_potassium_to']
             ];
+            unset($data['norm_potassium_from']);
+            unset($data['norm_potassium_to']);
         }
-        unset($data['norm_potassium_from']);
-        unset($data['norm_potassium_to']);
+        if (!isset($data['norm_potassium_from'])) {
+            unset($data['norm_potassium_from']);
+        }
+        if (!isset($data['norm_potassium_to'])) {
+            unset($data['norm_potassium_to']);
+        }
 //        dd($data);
 
         if (!isset($data['culture_ids'])) {
