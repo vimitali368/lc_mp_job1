@@ -66,7 +66,7 @@ class StoreFertilizerJob implements ShouldQueue
             $data = [
                 'status' => 2,
                 'user_id' => 1,
-                'jsonb' => json_encode($exception->errors)
+                'jsonb' => json_encode($exception)
             ];
 //            dd($data);
             return route('admin.status.store', compact('data'));
