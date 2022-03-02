@@ -50,7 +50,7 @@
                                            @endif
                                            @if(isset($data['norm_nitrogen']))
                                            value="{{ $data['norm_nitrogen'][0] }}"
-                                        @endif >
+                                        @endif
                                     >
                                 </div>
                                 <div class="input-group">
@@ -62,7 +62,7 @@
                                            @endif
                                            @if(isset($data['norm_nitrogen']))
                                            value="{{ $data['norm_nitrogen'][1] }}"
-                                        @endif >
+                                        @endif
                                     >
                                     <span class="input-group-text form-control-sm">0.00</span>
                                 </div>
@@ -74,14 +74,24 @@
                                     <input type="search" class="form-control form-control-sm"
                                            placeholder="от" id="norm_phosphorus_from" name="norm_phosphorus_from"
                                            aria-label="Начальное значение нормы (с точкой и двумя знаками)"
-                                        {{--                                           @if(isset($_GET['norm_phosphorus_from'])) value="{{$_GET['norm_phosphorus_from']}}" @endif --}}
+                                           @if(isset($data['norm_phosphorus_from']))
+                                           value="{{ $data['norm_phosphorus_from'] }}"
+                                           @endif
+                                           @if(isset($data['norm_phosphorus']))
+                                           value="{{ $data['norm_phosphorus'][0] }}"
+                                        @endif
                                     >
                                 </div>
                                 <div class="input-group">
                                     <input type="search" class="form-control form-control-sm"
                                            placeholder="до" id="norm_phosphorus_to" name="norm_phosphorus_to"
                                            aria-label="Конечное значение нормы (с точкой и двумя знаками)"
-                                        {{--                                           @if(isset($_GET['norm_phosphorus_to'])) value="{{$_GET['norm_phosphorus_to']}}" @endif --}}
+                                           @if(isset($data['norm_phosphorus_to']))
+                                           value="{{ $data['norm_phosphorus_to'] }}"
+                                           @endif
+                                           @if(isset($data['norm_phosphorus']))
+                                           value="{{ $data['norm_phosphorus'][1] }}"
+                                        @endif
                                     >
                                     <span class="input-group-text form-control-sm">0.00</span>
                                 </div>
@@ -93,19 +103,28 @@
                                     <input type="search" class="form-control form-control-sm"
                                            placeholder="от" id="norm_potassium_from" name="norm_potassium_from"
                                            aria-label="Начальное значение нормы (с точкой и двумя знаками)"
-                                        {{--                                           @if(isset($_GET['norm_potassium_from'])) value="{{$_GET['norm_potassium_from']}}" @endif --}}
+                                           @if(isset($data['norm_potassium_from']))
+                                           value="{{ $data['norm_potassium_from'] }}"
+                                           @endif
+                                           @if(isset($data['norm_potassium']))
+                                           value="{{ $data['norm_potassium'][0] }}"
+                                        @endif
                                     >
                                 </div>
                                 <div class="input-group">
                                     <input type="search" class="form-control form-control-sm"
                                            placeholder="до" id="norm_potassium_to" name="norm_potassium_to"
                                            aria-label="Конечное значение нормы (с точкой и двумя знаками)"
-                                        {{--                                           @if(isset($_GET['norm_potassium_to'])) value="{{$_GET['norm_potassium_to']}}" @endif --}}
+                                           @if(isset($data['norm_potassium_to']))
+                                           value="{{ $data['norm_potassium_to'] }}"
+                                           @endif
+                                           @if(isset($data['norm_potassium']))
+                                           value="{{ $data['norm_potassium'][1] }}"
+                                        @endif
                                     >
                                     <span class="input-group-text form-control-sm">0.00</span>
                                 </div>
                             </div>
-{{--                            @dd(old('culture_ids[]'))--}}
                             <div class="col-sm-2">
                                 <div class="form-group">
                                     <label for="cultures">Группа культур:</label>
@@ -115,14 +134,14 @@
                                             id="cultures" name="culture_ids[]">
                                         @foreach($cultures as $culture)
                                             <option value="{{ $culture->id }}"
-                                                {{ $culture->id == old('cultures') ? ' selected' : '' }}
+                                            @if(isset( $data['culture_ids'] ))
+                                                {{ is_array( $data['culture_ids']) && in_array($culture->id, $data['culture_ids']) ? ' selected' : ''}}
+                                                @endif
                                             >{{ $culture->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
                             </div>
-                            {{--                                                        <option value="{{ $culture->culture }}"--}}
-                            {{--                                                            {{ $culture->culture == old('culture') ? ' selected' : '' }}--}}
                             <div class="col-sm-2">
                                 <div class="form-group">
                                     <label for="districts">Район:</label>
@@ -131,7 +150,10 @@
                                             style="width: 100%;"
                                             id="districts" name="districts[]">>
                                         @foreach($districts as $district)
-                                            <option value="{{ $district->district }}">
+                                            <option value="{{ $district->district }}"
+                                            @if(isset( $data['districts'] ))
+                                                {{ $data['districts'][0] == $district->district ? ' selected' : '' }}
+                                                @endif >
                                                 {{ $district->district }}
                                             </option>
                                         @endforeach
@@ -148,21 +170,32 @@
                                             style="width: 100%;"
                                             id="costs" name="costs[]">>
                                         @foreach($costs as $cost)
-                                            <option value="{{ $cost->cost }}">
+                                            <option value="{{ $cost->cost }}"
+                                            @if(isset( $data['costs'] ))
+                                                {{ is_array( $data['costs']) && in_array($cost->cost, $data['costs']) ? ' selected' : ''}}
+                                                @endif >
                                                 {{ $cost->cost }}
                                             </option>
                                         @endforeach
                                     </select>
                                 </div>
                             </div>
-                            {{--                                                        <option value="{{ $cost->cost }}"--}}
-                            {{--                                                            {{ $cost->cost == old('cost') ? ' selected' : '' }}--}}
                             <div class=" col-sm-2">
                                 <div class="form-group">
                                     <label for="sort">Сортировать по:</label>
                                     <select class="form-control form-control-sm" id="sort" name="sort">
-                                        <option value="name">Наименование</option>
-                                        <option value="cost">Стоимость</option>
+                                        <option value="name"
+                                        @if(isset( $data['sort'] ))
+                                            {{ $data['sort'][0] == 'name' ? ' selected' : '' }}
+                                            @endif
+                                        >Наименование
+                                        </option>
+                                        <option value="cost"
+                                        @if(isset( $data['sort'] ))
+                                            {{ $data['sort'][0] == 'cost' ? ' selected' : '' }}
+                                            @endif
+                                        >Стоимость
+                                        </option>
                                     </select>
                                 </div>
                             </div>
@@ -170,8 +203,18 @@
                                 <div class="form-group">
                                     <label for="order">Порядок сортировки:</label>
                                     <select class="form-control form-control-sm" id="order" name="order">
-                                        <option value="asc">По возрастанию</option>
-                                        <option value="desc">По убыванию</option>
+                                        <option value="asc"
+                                        @if(isset( $data['sort'] ))
+                                            {{ $data['sort'][1] == 'asc' ? ' selected' : '' }}
+                                            @endif
+                                        >По возрастанию
+                                        </option>
+                                        <option value="desc"
+                                        @if(isset( $data['sort'] ))
+                                            {{ $data['sort'][1] == 'desc' ? ' selected' : '' }}
+                                            @endif
+                                        >По убыванию
+                                        </option>
                                     </select>
                                 </div>
                             </div>
