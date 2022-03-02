@@ -57,7 +57,8 @@ class StoreFertilizerJob implements ShouldQueue
                 'jsonb' => $jsonValue,
             ];
 //            dd($data);
-            return route('admin.status.store', compact('data'));
+            ImportStatus::сreate($data);
+//            return route('admin.status.store', compact('data'));
         } catch (\Exception $exception) {
             $collection = new Collection([
                 ['file' => $this->filePath],
@@ -69,7 +70,8 @@ class StoreFertilizerJob implements ShouldQueue
                 'jsonb' => json_encode($exception)
             ];
 //            dd($data);
-            return route('admin.status.store', compact('data'));
+            ImportStatus::сreate($data);
+//            return route('admin.status.store', compact('data'));
         }
 //        public_path('excel/' . 'Fertilizers.xlsx'));
 
